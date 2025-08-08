@@ -1,0 +1,124 @@
+.check{
+width: 353px;
+height: 390px;
+
+
+opacity: 1;
+border-radius: 24px;
+border-width: 3px;
+background-color: #FFFFFF;
+border: 3px solid #333333
+
+
+}
+.custom-row{
+gap: 42px;
+}
+.courses-section {
+  padding: 20px 0;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.subtitle {
+  color: #555;
+  max-width: 500px;
+}
+
+.card-wrapper {
+  padding: 10px;
+}
+
+.card {
+  background: #fff;
+  border: 3px solid #333;
+  border-radius: 24px;
+  overflow: hidden;
+  text-align: left;
+  padding-bottom: 10px;
+}
+
+.card-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 13% 13% 0 0;
+}
+
+
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 15px;
+  font-size: 14px;
+}
+
+.arrow-btn {
+  background: #ddd;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.arrow-btn:hover {
+  background: #ccc;
+}
+.course-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
+}
+
+.course-slider::-webkit-scrollbar {
+  height: 8px;
+}
+
+.course-slider::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.course-card {
+  flex: 0 0 auto;
+  width: 260px;
+}
+/* Hide navigation buttons on mobile */
+@media (max-width: 768px) {
+  .course-scroll-buttons {
+    display: none !important;
+  }
+
+  /* Allow horizontal scroll on mobile */
+  .course-slider {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* smooth scroll for iOS */
+
+    /* Hide scrollbar but keep scroll functional */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  /* Hide scrollbar for Chrome, Safari, Edge */
+  .course-slider::-webkit-scrollbar {
+    display: none;
+  }
+}
+
