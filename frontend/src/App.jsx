@@ -16,7 +16,7 @@ function App() {
       <Home />
       <Services />
       <Courses />
-      <UpcomingActivity />
+      <UpcomingActivity /> 
     </>
   )
 }
