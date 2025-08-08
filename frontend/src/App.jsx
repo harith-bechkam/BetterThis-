@@ -12,11 +12,11 @@ function App() {
 
   return (
     <>
-   
-    <Home/>
-     <Services/>
-    <Courses/>
-    <UpcomingActivity/>
+
+      <Home />
+      <Services />
+      <Courses />
+      <UpcomingActivity />
     </>
   )
 }
