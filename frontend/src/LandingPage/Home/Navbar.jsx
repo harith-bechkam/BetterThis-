@@ -9,6 +9,7 @@ export default function Navbar({ isMobile, showNavbar }) {
     if (!showNavbar) {
       setNavMenuOpen(false)
     }
+    // console.log("renders")
   }, [showNavbar])
 
   useEffect(() => {
