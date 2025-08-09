@@ -55,52 +55,38 @@ const Home = () => {
       image: HomeImage,
       options: op1,
       render: () => (
-        <motion.div
+        <div
           className="expdf"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -40 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <h1>Experience The Digital Transformation</h1>
           <span>A new place for consumer engagement with immersive experiences while building community</span>
           <p>Let's Traverse</p>
-        </motion.div>
+        </div>
       ),
     },
     {
       image: HomeImage,
       options: op2,
       render: () => (
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -40 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
+        <>
           <h1>Our Services</h1>
           <ul>
             <li>Service A</li>
             <li>Service B</li>
             <li>Service C</li>
           </ul>
-        </motion.div>
+          </>
       ),
     },
     {
       image: HomeImage,
       options: globeOptions,
       render: () => (
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -40 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
+       <>
           <h1>Join Our Courses</h1>
           <p>Enroll now to boost your career!</p>
           <button>Enroll Today</button>
-        </motion.div>
+          </>
       ),
     },
   ];
