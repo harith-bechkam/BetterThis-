@@ -1,28 +1,39 @@
 import React from 'react';
 import HomeImage from '../../assets/Background.jpg';
+import Courses from '../Courses/Courses';
+import Services from '../Services/Services';
+import UpcomingActivity from '../UpcomingActivities/SeminarCard';
+import Beforeafter from '../beforeafter/beforeafter';
+import StatsSection from '../StatsSection/StatsSection';
 import './home.css';
 import { GiHamburgerMenu } from "react-icons/gi";
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
+    <>
     <div className="home-page">
 
       {/* NAVBAR SEPARATE */}
-      <header className="home-header">
-        <div className="header-sect-all">
-          <div className="logo">BetterThis</div>
-          <nav className="nav-menu">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Course</a>
-            <a href="#">Services</a>
-            <button className="contact-btn">Contact Us</button>
-          </nav>
-          <div className="mobile-hamburger">
-            <GiHamburgerMenu />
-          </div>
-        </div>
-      </header>
+     <header className="home-header">
+  <div className="header-sect-all">
+    <div className="logo">BetterThis</div>
+    
+    <nav className="nav-menu">
+      <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
+      <Link to="/courses">Course</Link>
+      <Link to="/services">Services</Link>
+      <Link to="/contact">
+        <button className="contact-btn">Contact Us</button>
+      </Link>
+    </nav>
+
+    <div className="mobile-hamburger">
+      <GiHamburgerMenu />
+    </div>
+  </div>
+</header>
       <div className="home-section">
         {/* Background Image */}
         <img src={HomeImage} alt="Banner" className="home-image" />
@@ -60,7 +71,12 @@ const Home = () => {
       </div>
 
     </div>
-
+<Services/>
+<Courses/>
+<UpcomingActivity />
+<Beforeafter />
+<StatsSection />
+</>
   );
 };
 
