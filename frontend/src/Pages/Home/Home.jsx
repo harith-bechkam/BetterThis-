@@ -56,11 +56,6 @@ const Home = () => {
       <StatsSection />
 
     </div>
-<Services/>
-<Courses/>
-<UpcomingActivity />
-<Beforeafter />
-<StatsSection />
 </>
   );
 };
