@@ -6,6 +6,7 @@ import UpcomingActivity from './LandingPage/UpcomingActivities/SeminarCard'
 import Beforeafter from './LandingPage/beforeafter/beforeafter'
 import StatsSection from './LandingPage/StatsSection/StatsSection'
 import Footer from './LandingPage/Footer/Footer';
+import ScrollToTop from './ScrollToTop';
 function App() {
 
   return (
@@ -17,7 +18,7 @@ function App() {
       <Beforeafter />
       <StatsSection />
       <Footer />
-
+      <ScrollToTop />
     </>
   )
 }
