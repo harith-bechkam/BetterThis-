@@ -7,16 +7,21 @@ import Headers from '../src/components/Headers/Header'
 import Courses from './Pages/Courses/Courses';
 import Services from './Pages/Services/Services'
 import UpcomingActivity from './Pages/UpcomingActivities/SeminarCard'
+import Beforeafter from './Pages/beforeafter/beforeafter'
+import StatsSection from './Pages/StatsSection/StatsSection'
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-
-      <Home />
-      <Services />
-      <Courses />
-      <UpcomingActivity /> 
+   
+    <Home/>
+     <Services/>
+    <Courses/>
+    <UpcomingActivity/>
+    <Beforeafter/>
+    <StatsSection/>
+    
     </>
   )
 }
