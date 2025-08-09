@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from "react"
 import Navbar from "./Navbar"
 import "./home.css"
-import { GiHamburgerMenu } from "react-icons/gi"
 import HomeImage from "./assets/alterbanner.png"
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import Particle from "./Particle";
+import { AnimatePresence, motion } from "framer-motion";
+import { op1, op2, globeOptions } from './options'
+import Bar from "./Bar"
 
 const Home = () => {
   const heroRef = useRef(null)
@@ -20,7 +22,7 @@ const Home = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       setShowNavbar(!entry.isIntersecting)
-    }, { threshold: 0 })
+    }, { threshold: 0.5 })
 
     if (heroRef.current) observer.observe(heroRef.current)
     return () => {
@@ -48,240 +50,60 @@ const Home = () => {
     }
   }, [menuOpen])
 
-
-  const op1 = {
-    background: {
-      color: { value: "rgb(10, 10, 30)" },
-    },
-    fpsLimit: 120,
-    interactivity: {
-      events: {
-        onClick: { enable: true, mode: "push" },
-        onHover: { enable: true, mode: "repulse" },
-        resize: true,
-      },
-      modes: {
-        push: { quantity: 4 },
-        repulse: { distance: 200, duration: 0.4 },
-      },
-    },
-    particles: {
-      color: { value: "#FF61C7" },
-      links: {
-        color: "#FF61C7",
-        distance: 150,
-        enable: true,
-        opacity: 0.5,
-        width: 1,
-      },
-      move: {
-        direction: "none",
-        enable: true,
-        outModes: { default: "bounce" },
-        speed: 6,
-      },
-      number: {
-        density: { enable: true, area: 800 },
-        value: 80,
-      },
-      opacity: { value: 0.5 },
-      shape: { type: "circle" },
-      size: { value: { min: 1, max: 5 } },
-    },
-    detectRetina: true,
-  }
-  const op2 = {
-    background: { color: { value: "rgb(10, 10, 30)" } },
-    fpsLimit: 60,
-    interactivity: {
-      detectsOn: "canvas",
-      events: {
-        onHover: { enable: true, mode: ["grab", "repulse"] },
-        onClick: { enable: true, mode: "push" },
-        resize: true,
-      },
-      modes: {
-        grab: {
-          distance: 200,
-          links: { opacity: 0.7 },
-        },
-        repulse: {
-          distance: 150,
-          duration: 0.6,
-        },
-        push: { quantity: 4 },
-      },
-    },
-    particles: {
-      color: { value: ["#FF61C7", "#FFD166", "#06D6A0", "#118AB2"] },
-      links: {
-        color: "#FF61C7",
-        distance: 150,
-        enable: true,
-        opacity: 0.4,
-        width: 1,
-        triangles: { enable: true, opacity: 0.1 }, // add triangles between particles
-      },
-      move: {
-        direction: "none",
-        enable: true,
-        outModes: { default: "bounce" },
-        random: true,
-        speed: 3,
-        straight: false,
-        wobble: { enable: true, distance: 5, speed: 2 }, // wobble effect
-      },
-      number: {
-        density: { enable: true, area: 900 },
-        value: 70,
-      },
-      opacity: {
-        value: 0.6,
-        random: { enable: true, minimumValue: 0.3 },
-        animation: { enable: true, speed: 0.5, minimumValue: 0.3, sync: false },
-      },
-      shape: {
-        type: ["circle", "triangle", "star", "polygon"],
-        options: {
-          polygon: { sides: 6 },
-          star: { sides: 5 },
-        },
-      },
-      size: {
-        value: { min: 2, max: 6 },
-        random: true,
-        animation: {
-          enable: true,
-          speed: 4,
-          minimumValue: 2,
-          sync: false,
-        },
-      },
-      rotate: {
-        value: 0,
-        random: true,
-        direction: "random",
-        animation: {
-          enable: true,
-          speed: 5,
-          sync: false,
-        },
-      },
-    },
-    detectRetina: true,
-  }
-  const globeOptions = {
-    background: {
-      color: { value: "rgb(10, 10, 30)" },
-    },
-    fpsLimit: 60,
-    interactivity: {
-      detectsOn: "canvas",
-      events: {
-        onHover: {
-          enable: true,
-          mode: "grab",
-        },
-        onClick: {
-          enable: true,
-          mode: "push",
-        },
-        resize: true,
-      },
-      modes: {
-        grab: {
-          distance: 200,
-          links: {
-            opacity: 0.8,
-          },
-        },
-        push: {
-          quantity: 4,
-        },
-      },
-    },
-    particles: {
-      number: {
-        value: 120,
-        density: {
-          enable: true,
-          area: 800,
-        },
-      },
-      color: {
-        value: "#FF61C7",
-      },
-      shape: {
-        type: "circle",
-      },
-      opacity: {
-        value: 0.7,
-        random: false,
-      },
-      size: {
-        value: 3,
-        random: { enable: true, minimumValue: 1 },
-        animation: {
-          enable: true,
-          speed: 4,
-          minimumValue: 1,
-          sync: false,
-        },
-      },
-      links: {
-        enable: true,
-        distance: 120,
-        color: "#FF61C7",
-        opacity: 0.3,
-        width: 1,
-        triangles: {
-          enable: true,
-          opacity: 0.05,
-        },
-        warp: true,
-      },
-      move: {
-        enable: true,
-        speed: 1,
-        direction: "none",
-        random: false,
-        straight: false,
-        outModes: {
-          default: "bounce",
-        },
-        attract: {
-          enable: true,
-          rotateX: 600,
-          rotateY: 1200,
-        },
-      },
-      orbit: {
-        enable: true,
-        radius: 100,
-        rotation: {
-          speed: 0.2,
-          sync: false,
-        },
-        animation: {
-          enable: true,
-          speed: 0.1,
-          sync: false,
-        },
-      },
-    },
-    detectRetina: true,
-  };
-
   const slides = [
     {
-      image: HomeImage, text: "Welcome to BetterThis", options: op1
+      image: HomeImage,
+      options: op1,
+      render: () => (
+        <motion.div
+          className="expdf"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -40 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <h1>Experience The Digital Transformation</h1>
+          <span>A new place for consumer engagement with immersive experiences while building community</span>
+          <p>Let's Traverse</p>
+        </motion.div>
+      ),
     },
     {
-      image: HomeImage, text: "Our Services", options: op2
+      image: HomeImage,
+      options: op2,
+      render: () => (
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -40 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <h1>Our Services</h1>
+          <ul>
+            <li>Service A</li>
+            <li>Service B</li>
+            <li>Service C</li>
+          </ul>
+        </motion.div>
+      ),
     },
-    { image: HomeImage, text: "Join Our Courses", options: globeOptions },
-  ]
-
+    {
+      image: HomeImage,
+      options: globeOptions,
+      render: () => (
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -40 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <h1>Join Our Courses</h1>
+          <p>Enroll now to boost your career!</p>
+          <button>Enroll Today</button>
+        </motion.div>
+      ),
+    },
+  ];
 
   return (
     <>
@@ -289,53 +111,9 @@ const Home = () => {
         <Navbar isMobile={isMobile} showNavbar={showNavbar} />
       </div>
 
-      <section className="w-100">
-        <div ref={heroRef} className="header">
-          <h5>BetterThis</h5>
-
-          {isMobile ? (
-            <div ref={menuRef} style={{ position: "relative" }}>
-              <div
-                style={{ cursor: "pointer", fontSize: "1.5rem" }}
-                onClick={() => setMenuOpen(!menuOpen)}
-              >
-                <GiHamburgerMenu />
-              </div>
-              {menuOpen && (
-                <div
-                  style={{
-                    position: "absolute", top: "100%", right: 0,
-                    background: "#fff", boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-                    padding: "1rem", borderRadius: "4px"
-                  }}
-                >
-                  <ul
-                    style={{
-                      listStyle: "none", padding: 0, margin: 0,
-                      display: "flex", flexDirection: "column", gap: "0.5rem"
-                    }}
-                  >
-                    <li>Link</li>
-                    <li>Link</li>
-                    <li>Link</li>
-                  </ul>
-                </div>
-              )}
-            </div>
-          ) : (
-            <ul className="nav-links">
-              <li>Home</li>
-              <li>Inside BetterThis</li>
-              <li>Services</li>
-              <li>Products</li>
-              <li>Courses</li>
-              <button>Contact</button>
-            </ul>
-          )}
-        </div>
-
+      <section ref={heroRef} >
         <Swiper
-          modules={[Pagination, Autoplay]}
+          modules={[Pagination]}
           pagination={{ clickable: true }}
           autoplay={{ delay: 7000 }}
           loop
@@ -345,16 +123,30 @@ const Home = () => {
           {slides.map((slide, i) => (
             <SwiperSlide key={i}>
               <div style={{ position: "relative", height: "65rem", overflow: "hidden" }}>
-                <Particle options={slide.options} reloadKey={i} />
-                <div className="carousel-text" style={{ position: "relative", zIndex: 2 }}>
-                  {slide.text}
+                <Particle options={slide.options} rekey={i} />
+                <div className="header" style={{ position: "absolute", top: 0, left: 0, right: 0, zIndex: 10 }}>
+                  <Bar logoText="BetterThis" menuRef={menuRef} isMobile={isMobile} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+                </div>
+
+                <div style={{ position: "relative", zIndex: 2 }}>
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activeSlide}
+                      initial={{ opacity: 0, y: 40 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -40 }}
+                      transition={{ duration: 0.8, ease: "easeOut" }}
+                    >
+                      {slide.render()}
+                    </motion.div>
+                  </AnimatePresence>
                 </div>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
-
       </section>
+
     </>
   )
 }

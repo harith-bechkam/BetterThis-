@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 
-const Particle = ({ options, reloadKey }) => {
+const Particle = ({ options, rekey }) => {
   const [init, setInit] = useState(false);
 
   useEffect(() => {
@@ -12,13 +12,13 @@ const Particle = ({ options, reloadKey }) => {
     }).then(() => {
       setInit(true);
     });
-  }, [reloadKey]);
+  }, [rekey]);
 
   if (!init) return null;
 
   return (
     <Particles
-      id={`tsparticles-${reloadKey}`} 
+      id={`tsparticles-${rekey}`} 
       options={options}
       style={{
         position: "absolute",
