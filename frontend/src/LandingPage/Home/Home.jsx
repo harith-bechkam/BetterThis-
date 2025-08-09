@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeImage from '../../assets/Background.jpg';
+import HomeImage from './assets/Background.jpg';
 import './home.css';
 import { GiHamburgerMenu } from "react-icons/gi";
 
@@ -7,8 +7,9 @@ const Home = () => {
   return (
     <div className="home-page">
 
-      {/* NAVBAR SEPARATE */}
-      <header className="home-header">
+
+
+      {/* <header className="home-header">
         <div className="header-sect-all">
           <div className="logo">BetterThis</div>
           <nav className="nav-menu">
@@ -23,10 +24,9 @@ const Home = () => {
           </div>
         </div>
       </header>
+
       <div className="home-section">
-        {/* Background Image */}
         <img src={HomeImage} alt="Banner" className="home-image" />
-        {/* Overlay Content */}
         <div className="overlay-content container">
           <h1>Project And Resource <br /> Management Software</h1>
           <h2><span>Built For Client Work</span></h2>
@@ -39,6 +39,7 @@ const Home = () => {
           <button className="cta-btn">Contact Us</button>
         </div>
       </div>
+
       <div className="home-section-mobile">
         <div className="first-section-mobile">
           <div className="overlay-content-mobile">
@@ -57,7 +58,9 @@ const Home = () => {
         <div className="second-section-mobile">
           <img src={HomeImage} alt="" className="home-image" />
         </div>
-      </div>
+      </div> */}
+
+
 
     </div>
 
