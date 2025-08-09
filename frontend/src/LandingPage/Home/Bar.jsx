@@ -1,16 +1,34 @@
-import { GiHamburgerMenu } from "react-icons/gi";
-import { Offcanvas } from "react-bootstrap";
-import { useState } from "react";
-import { FaPlus, FaMinus, FaCheckCircle, FaStar, FaCog } from "react-icons/fa";
+import { GiHamburgerMenu } from "react-icons/gi"
+import { Offcanvas } from "react-bootstrap"
+import { useState, useRef } from "react"
+import { FaPlus, FaMinus, FaCheckCircle, FaStar, FaCog } from "react-icons/fa"
 
 const Bar = ({ logoText = "BetterThis", menuRef, isMobile, menuOpen, setMenuOpen }) => {
-    const [servicesOpen, setServicesOpen] = useState(false);
+    const [servicesOpen, setServicesOpen] = useState(false)
+    const [showServicesDropdown, setShowServicesDropdown] = useState(false)
 
-    const serviceOptions = [
-        { icon: <FaCheckCircle />, label: "Service A" },
-        { icon: <FaStar />, label: "Service B" },
-        { icon: <FaCog />, label: "Service C" },
-    ];
+    const dropdownTimeout = useRef(null)
+
+    const serviceOptLeft = [
+        { icon: <FaCheckCircle />, label: "Digital Management" },
+        { icon: <FaStar />, label: "Infrastructure" },
+    ]
+
+    const serviceOpRight = [
+        { icon: <FaCog />, label: "Intelligence" },
+        { icon: <FaCheckCircle />, label: "Innovation" },
+    ]
+
+    const handleMouseEnter = () => {
+        if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current)
+        setShowServicesDropdown(true)
+    }
+
+    const handleMouseLeave = () => {
+        dropdownTimeout.current = setTimeout(() => {
+            setShowServicesDropdown(false)
+        }, 200)
+    }
 
     return (
         <nav className="bar-container">
@@ -28,8 +46,8 @@ const Bar = ({ logoText = "BetterThis", menuRef, isMobile, menuOpen, setMenuOpen
                     <Offcanvas
                         show={menuOpen}
                         onHide={() => {
-                            setMenuOpen(false);
-                            setServicesOpen(false);
+                            setMenuOpen(false)
+                            setServicesOpen(false)
                         }}
                         placement="end"
                         className="custom-offcanvas"
@@ -39,7 +57,6 @@ const Bar = ({ logoText = "BetterThis", menuRef, isMobile, menuOpen, setMenuOpen
                         <Offcanvas.Body>
                             <ul className="mobile-menu-list">
                                 <li>Home</li>
-                                <li>Inside BetterThis</li>
 
                                 <li
                                     className="services-menu"
@@ -54,7 +71,7 @@ const Bar = ({ logoText = "BetterThis", menuRef, isMobile, menuOpen, setMenuOpen
 
                                 {servicesOpen && (
                                     <ul className="service-submenu">
-                                        {serviceOptions.map(({ icon, label }) => (
+                                        {[...serviceOptLeft, ...serviceOpRight].map(({ icon, label }) => (
                                             <li key={label}>
                                                 <span className="service-icon">{icon}</span>
                                                 {label}
@@ -63,6 +80,7 @@ const Bar = ({ logoText = "BetterThis", menuRef, isMobile, menuOpen, setMenuOpen
                                     </ul>
                                 )}
 
+                                <li>Inside BetterThis</li>
                                 <li>Products</li>
                                 <li>Courses</li>
                             </ul>
@@ -72,14 +90,99 @@ const Bar = ({ logoText = "BetterThis", menuRef, isMobile, menuOpen, setMenuOpen
             ) : (
                 <ul className="nav-links">
                     <li className="active">Home</li>
+
+                    <li
+                        className="services-menu"
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                        style={{ position: "relative" }}
+                    >
+                        Services
+
+                        {showServicesDropdown && (
+                            <div
+                                className="services-dropdown"
+                                onMouseEnter={handleMouseEnter}
+                                onMouseLeave={handleMouseLeave}
+                                style={{
+                                    position: "absolute",
+                                    top: "100%",
+                                    left: 0,
+                                    background: "#fff",
+                                    borderRadius: "6px",
+                                    padding: "1rem 2rem",
+                                    boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+                                    zIndex: 100,
+                                    minWidth: "300px",
+                                    display: "flex",
+                                    gap: "4rem",
+                                    color: "#222",
+                                    fontWeight: "100",
+                                    userSelect: "none",
+                                    textDecoration: "none"
+                                }}
+                            >
+                                <div style={{ flex: 1 }}>
+
+                                    <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                                        {serviceOptLeft.map(({ icon, label }) => (
+                                            <li
+                                                key={label}
+                                                style={{
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    padding: "0.4rem 0",
+                                                    cursor: "pointer",
+                                                    color: "#222",
+                                                    transition: "color 0.3s",
+                                                }}
+                                                onMouseEnter={e => e.currentTarget.style.color = "#895EF7"}
+                                                onMouseLeave={e => e.currentTarget.style.color = "#222"}
+                                            >
+                                                <span style={{ marginRight: "0.75rem", color: "#895EF7", display: "flex", alignItems: "center" }}>
+                                                    {icon}
+                                                </span>
+                                                {label}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div style={{ flex: 1 }}>
+
+                                    <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                                        {serviceOpRight.map(({ icon, label }) => (
+                                            <li
+                                                key={label}
+                                                style={{
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    padding: "0.4rem 0",
+                                                    cursor: "pointer",
+                                                    color: "#222",
+                                                    transition: "color 0.3s",
+                                                }}
+                                                onMouseEnter={e => e.currentTarget.style.color = "#895EF7"}
+                                                onMouseLeave={e => e.currentTarget.style.color = "#222"}
+                                            >
+                                                <span style={{ marginRight: "0.75rem", color: "#895EF7", display: "flex", alignItems: "center" }}>
+                                                    {icon}
+                                                </span>
+                                                {label}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        )}
+                    </li>
                     <li>Inside BetterThis</li>
-                    <li>Services</li>
                     <li>Products</li>
                     <li>Courses</li>
                 </ul>
             )}
         </nav>
-    );
-};
+    )
+}
 
-export default Bar;
+export default Bar

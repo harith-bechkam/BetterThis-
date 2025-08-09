@@ -105,7 +105,7 @@ const Home = () => {
         <Swiper
           modules={[Pagination, Autoplay, EffectFade]}
           pagination={{ clickable: true }}
-          autoplay={{ delay: 9000 }}
+          autoplay={{ delay: 15000 }}
           loop
           effect="fade"
           fadeEffect={{ crossFade: false }}
@@ -116,9 +116,9 @@ const Home = () => {
         >
           {slides.map((slide, i) => (
             <SwiperSlide key={i}>
-              <div style={{ position: "relative", height: "65rem", overflow: "hidden" }}>
+              <div style={{ position: "relative", height: "67rem", overflow: "hidden" }}>
                 <Particle options={slide.options} rekey={i} />
-                <div className="header" style={{ position: "absolute", top: 0, left: 0, right: 0, zIndex: 10 }}>
+                <div className="header" style={{ position: "absolute", top: "30px", left: 0, right: 0, zIndex: 10 }}>
                   <Bar logoText="BetterThis" menuRef={menuRef} isMobile={isMobile} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
                 </div>
 

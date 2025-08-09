@@ -303,3 +303,45 @@
   border-color: #ff8a00;
   transform: scale(1.05);
 }
+
+/* services dropdown */
+.services-dropdown {
+  background-color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  display: flex;
+  gap: 3rem; 
+  color: #222;
+  font-weight: 100;
+  user-select: none;
+  min-width: 320px;
+}
+
+.services-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.services-dropdown ul li {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;  
+  padding: 0.6rem 0;   
+  cursor: pointer;
+  color: #222;
+  transition: color 0.3s ease;
+}
+
+.services-dropdown ul li:hover {
+  color: #FF61C7;
+}
+
+.services-dropdown ul li span {
+  margin-right: 0.75rem;
+  color: #895EF7;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
