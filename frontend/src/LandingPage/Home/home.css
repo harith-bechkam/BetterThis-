@@ -153,6 +153,7 @@
   overflow: hidden;
   animation: fadeSlideDown 0.4s ease forwards;
 }
+
 @keyframes fadeSlideDown {
   0% {
     opacity: 0;
@@ -251,6 +252,11 @@
 .swiper-pagination-bullet:focus {
   outline: none;
   box-shadow: none;
+}
+
+.swiper-slide {
+  /* transition-timing-function: ease-out !important; */
+  /* transition-duration: 100ms !important;  */
 }
 
 

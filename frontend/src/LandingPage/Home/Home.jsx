@@ -2,10 +2,11 @@ import { useEffect, useRef, useState } from "react"
 import Navbar from "./Navbar"
 import "./home.css"
 import HomeImage from "./assets/alterbanner.png"
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide, } from "swiper/react";
+import { Pagination, Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/effect-fade";
 import Particle from "./Particle";
 import { AnimatePresence, motion } from "framer-motion";
 import { op1, op2, globeOptions } from './options'
@@ -69,24 +70,27 @@ const Home = () => {
       options: op2,
       render: () => (
         <>
-          <h1>Our Services</h1>
-          <ul>
-            <li>Service A</li>
-            <li>Service B</li>
-            <li>Service C</li>
-          </ul>
-          </>
+          <div
+            className="expdf"
+          >
+            <h1>Outcome-based Innovation</h1>
+            <span>Transform business with client-centered intelligent cloud solutions delivering intelligence, visiblity and smart technology</span>
+            <p>Let's Traverse</p>
+          </div>
+        </>
       ),
     },
     {
       image: HomeImage,
       options: globeOptions,
       render: () => (
-       <>
-          <h1>Join Our Courses</h1>
-          <p>Enroll now to boost your career!</p>
-          <button>Enroll Today</button>
-          </>
+        <div
+          className="expdf"
+        >
+          <h1>Intuitive Intelligence Re-engineered</h1>
+          <span>Operate with human insight, but at exceptional speed with the power to anticipate and act instantaneously</span>
+          <p>Let's Traverse</p>
+        </div>
       ),
     },
   ];
@@ -99,12 +103,16 @@ const Home = () => {
 
       <section ref={heroRef} >
         <Swiper
-          modules={[Pagination]}
+          modules={[Pagination, Autoplay, EffectFade]}
           pagination={{ clickable: true }}
-          autoplay={{ delay: 7000 }}
+          autoplay={{ delay: 9000 }}
           loop
+          effect="fade"
+          fadeEffect={{ crossFade: false }}
           className="mySwiper"
           onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
+          allowTouchMove={false}     // disable swipe/drag change
+        // keyboard={{ enabled: false }}  // disable keyboard nav
         >
           {slides.map((slide, i) => (
             <SwiperSlide key={i}>
@@ -115,17 +123,15 @@ const Home = () => {
                 </div>
 
                 <div style={{ position: "relative", zIndex: 2 }}>
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={activeSlide}
-                      initial={{ opacity: 0, y: 40 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -40 }}
-                      transition={{ duration: 0.8, ease: "easeOut" }}
-                    >
-                      {slide.render()}
-                    </motion.div>
-                  </AnimatePresence>
+                  <motion.div
+                    key={activeSlide}
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -40 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                  >
+                    {slide.render()}
+                  </motion.div>
                 </div>
               </div>
             </SwiperSlide>
