@@ -1,5 +1,10 @@
 import React from 'react';
 import HomeImage from '../../assets/Background.jpg';
+import Courses from '../Courses/Courses';
+import Services from '../Services/Services';
+import UpcomingActivity from '../UpcomingActivities/SeminarCard';
+import Beforeafter from '../beforeafter/beforeafter';
+import StatsSection from '../StatsSection/StatsSection';
 import './home.css';
 import { GiHamburgerMenu } from "react-icons/gi";
 import Courses from '../../Pages/Courses/Courses';
@@ -10,6 +15,7 @@ import StatsSection from '../../Pages/StatsSection/StatsSection'
 
 const Home = () => {
   return (
+    <>
     <div className="home-page">
 
       <div className="home-section">
@@ -55,7 +61,12 @@ const Home = () => {
       <StatsSection />
 
     </div>
-
+<Services/>
+<Courses/>
+<UpcomingActivity />
+<Beforeafter />
+<StatsSection />
+</>
   );
 };
 
