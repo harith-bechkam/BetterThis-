@@ -5,6 +5,7 @@ import Services from './LandingPage/Services/Services'
 import UpcomingActivity from './LandingPage/UpcomingActivities/SeminarCard'
 import Beforeafter from './LandingPage/beforeafter/beforeafter'
 import StatsSection from './LandingPage/StatsSection/StatsSection'
+import Footer from './LandingPage/Footer/Footer';
 function App() {
 
   return (
@@ -15,6 +16,7 @@ function App() {
       <UpcomingActivity />
       <Beforeafter />
       <StatsSection />
+      <Footer />
 
     </>
   )
