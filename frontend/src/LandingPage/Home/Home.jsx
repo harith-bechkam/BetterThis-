@@ -112,7 +112,7 @@ const Home = () => {
           className="mySwiper"
           onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
           allowTouchMove={false}     // disable swipe/drag change
-        // keyboard={{ enabled: false }}  // disable keyboard nav
+        // keyboard={{ enabled: true }}  // disable keyboard nav
         >
           {slides.map((slide, i) => (
             <SwiperSlide key={i}>
