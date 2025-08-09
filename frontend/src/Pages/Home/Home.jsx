@@ -2,27 +2,16 @@ import React from 'react';
 import HomeImage from '../../assets/Background.jpg';
 import './home.css';
 import { GiHamburgerMenu } from "react-icons/gi";
+import Courses from '../../Pages/Courses/Courses';
+import Services from '../../Pages/Services/Services'
+import UpcomingActivity from '../../Pages/UpcomingActivities/SeminarCard'
+import Beforeafter from '../../Pages/beforeafter/beforeafter'
+import StatsSection from '../../Pages/StatsSection/StatsSection'
 
 const Home = () => {
   return (
     <div className="home-page">
 
-      {/* NAVBAR SEPARATE */}
-      <header className="home-header">
-        <div className="header-sect-all">
-          <div className="logo">BetterThis</div>
-          <nav className="nav-menu">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Course</a>
-            <a href="#">Services</a>
-            <button className="contact-btn">Contact Us</button>
-          </nav>
-          <div className="mobile-hamburger">
-            <GiHamburgerMenu />
-          </div>
-        </div>
-      </header>
       <div className="home-section">
         {/* Background Image */}
         <img src={HomeImage} alt="Banner" className="home-image" />
@@ -58,6 +47,12 @@ const Home = () => {
           <img src={HomeImage} alt="" className="home-image" />
         </div>
       </div>
+
+      <Services />
+      <Courses />
+      <UpcomingActivity />
+      <Beforeafter />
+      <StatsSection />
 
     </div>
 

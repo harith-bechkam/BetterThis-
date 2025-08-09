@@ -1,29 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Home from './Pages/Home/Home'
-import Headers from '../src/components/Headers/Header'
-import Courses from './Pages/Courses/Courses';
-import Services from './Pages/Services/Services'
-import UpcomingActivity from './Pages/UpcomingActivities/SeminarCard'
-import Beforeafter from './Pages/beforeafter/beforeafter'
-import StatsSection from './Pages/StatsSection/StatsSection'
-function App() {
-  const [count, setCount] = useState(0)
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from '../src/Pages/Home/Home';
+import About from './Pages/Aboutall/About_all';
+import Header from '../src/components/Headers/Header';
+import './App.css';
 
+function App() {
   return (
     <>
-   
-    <Home/>
-     <Services/>
-    <Courses/>
-    <UpcomingActivity/>
-    <Beforeafter/>
-    <StatsSection/>
-    
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        {/* <Route path="/course" element={<Course />} />
+        <Route path="/services" element={<Services />} /> */}
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
