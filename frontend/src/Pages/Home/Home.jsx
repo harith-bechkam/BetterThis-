@@ -6,12 +6,7 @@ import UpcomingActivity from '../UpcomingActivities/SeminarCard';
 import Beforeafter from '../beforeafter/beforeafter';
 import StatsSection from '../StatsSection/StatsSection';
 import './home.css';
-import { GiHamburgerMenu } from "react-icons/gi";
-import Courses from '../../Pages/Courses/Courses';
-import Services from '../../Pages/Services/Services'
-import UpcomingActivity from '../../Pages/UpcomingActivities/SeminarCard'
-import Beforeafter from '../../Pages/beforeafter/beforeafter'
-import StatsSection from '../../Pages/StatsSection/StatsSection'
+
 
 const Home = () => {
   return (

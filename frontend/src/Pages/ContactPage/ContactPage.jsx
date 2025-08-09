@@ -8,26 +8,7 @@ import { Link } from 'react-router-dom';
 function ContactPage() {
   return (
     <>
-      {/* Navbar */}
-        <header className="home-header">
-  <div className="header-sect-all">
-    <div className="logo">BetterThis</div>
     
-    <nav className="nav-menu">
-      <Link to="/">Home</Link>
-      <Link to="/about">About</Link>
-      <Link to="/courses">Course</Link>
-      <Link to="/services">Services</Link>
-      <Link to="/contact">
-        <button className="contact-btn">Contact Us</button>
-      </Link>
-    </nav>
-
-    <div className="mobile-hamburger">
-      <GiHamburgerMenu />
-    </div>
-  </div>
-</header>
 
       {/* Hero Section */}
       {/* <header className="hero-section text-white text-center py-5" style={{ backgroundImage: `url('../asset/image/backgroundimg.jpg')`,width: 1920px,

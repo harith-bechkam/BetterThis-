@@ -12,7 +12,10 @@ const Header = () => {
           <NavLink to="/about">About</NavLink>
           <NavLink to="/course">Course</NavLink>
           <NavLink to="/services">Services</NavLink>
-          <button className="contact-btn">Contact Us</button>
+
+          <NavLink to="/contact">
+            <button className="contact-btn">Contact Us</button>
+          </NavLink>
         </nav>
         <div className="mobile-hamburger">
           <GiHamburgerMenu />
