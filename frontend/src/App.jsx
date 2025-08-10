@@ -7,6 +7,8 @@ import Beforeafter from './LandingPage/beforeafter/beforeafter'
 import StatsSection from './LandingPage/StatsSection/StatsSection'
 import Footer from './LandingPage/Footer/Footer';
 import ScrollToTop from './ScrollToTop';
+import Review from './LandingPage/Review'
+
 function App() {
 
   return (
@@ -16,7 +18,8 @@ function App() {
       <Courses />
       <UpcomingActivity />
       <Beforeafter />
-      <StatsSection />
+      {/* <StatsSection /> */}
+      <Review />
       <Footer />
       <ScrollToTop />
     </>
