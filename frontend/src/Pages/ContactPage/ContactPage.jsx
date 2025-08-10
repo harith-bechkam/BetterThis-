@@ -9,22 +9,53 @@ import Framer from '../framer';
 import Footer from '../../LandingPage/Footer/Footer';
 import Navbar from '../../LandingPage/Home/Navbar';
 import '../../LandingPage/Home/home.css'
+import Bar from "../../LandingPage/Home/Bar";
 
 function ContactPage() {
+  const heroRef = useRef(null)
+  const menuRef = useRef(null)
 
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
-  
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [showNavbar, setShowNavbar] = useState(false)
+
+
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768)
+    const observer = new IntersectionObserver(([entry]) => {
+      setShowNavbar(!entry.isIntersecting)
+    }, { threshold: 0.5 })
+
+    if (heroRef.current) observer.observe(heroRef.current)
+    return () => {
+      if (heroRef.current) observer.unobserve(heroRef.current)
+    }
+  }, [])
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768)
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuOpen(false)
+      }
+    }
+    if (menuOpen) {
+      document.addEventListener("mousedown", handleClickOutside)
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [menuOpen])
+
   return (
     <>
 
-      <div className={`fixed-navbar ${true ? "visible" : ""}`}>
-        <Navbar isMobile={isMobile} showNavbar={true} />
+      <div className={`fixed-navbar ${showNavbar ? "visible" : ""}`}>
+        <Navbar isMobile={isMobile} showNavbar={showNavbar} />
       </div>
 
       {/* Hero Section */}
@@ -45,6 +76,9 @@ height: 650.0241088867188px,
           alignItems: 'center',
         }}
       >
+        <div ref={heroRef} className="header" style={{ position: "absolute", top: "30px", left: 0, right: 0, zIndex: 10 }}>
+          <Bar logoText="BetterThis" menuRef={menuRef} isMobile={isMobile} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        </div>
         <div className='contactdetails'>
           <h1>Contact Us</h1>
           <p>Home / Contact Us</p>

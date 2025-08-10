@@ -14,6 +14,7 @@ import Navbar from "../../LandingPage/Home/Navbar";
 import '../../LandingPage/Home/home.css'
 import Framer from '../framer';
 import Footer from "../../LandingPage/Footer/Footer";
+import Bar from "../../LandingPage/Home/Bar";
 
 const categories = [
   { icon: <FaCode />, title: "Web Development" },
@@ -57,15 +58,44 @@ const profiles = [
 
 const ProfileCard = () => {
   const sliderRef = useRef(null);
-  const [activeCategory, setActiveCategory] = useState(categories[0].title);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
+  const heroRef = useRef(null)
+  const menuRef = useRef(null)
 
+  const [activeCategory, setActiveCategory] = useState(categories[0].title);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [showNavbar, setShowNavbar] = useState(false)
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768)
+    const observer = new IntersectionObserver(([entry]) => {
+      setShowNavbar(!entry.isIntersecting)
+    }, { threshold: 0.5 })
+
+    if (heroRef.current) observer.observe(heroRef.current)
+    return () => {
+      if (heroRef.current) observer.unobserve(heroRef.current)
+    }
+  }, [])
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768)
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuOpen(false)
+      }
+    }
+    if (menuOpen) {
+      document.addEventListener("mousedown", handleClickOutside)
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [menuOpen])
 
   const scrollLeft = () => sliderRef.current.scrollBy({ left: -200, behavior: "smooth" });
   const scrollRight = () => sliderRef.current.scrollBy({ left: 200, behavior: "smooth" });
@@ -77,11 +107,15 @@ const ProfileCard = () => {
 
   return (
     <>
-      <div className={`non-fixed-navbar ${true ? "visible" : ""}`}>
-        <Navbar isMobile={isMobile} showNavbar={true} />
+      <div className={`fixed-navbar ${showNavbar ? "visible" : ""}`}>
+        <Navbar isMobile={isMobile} showNavbar={showNavbar} />
       </div>
 
       <div className="about-section">
+
+        <div ref={heroRef} className="header" style={{ position: "absolute", top: "30px", left: 0, right: 0, zIndex: 10 }}>
+          <Bar logoText="BetterThis" menuRef={menuRef} isMobile={isMobile} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        </div>
 
         {/* Top Banner */}
         <div className="about-profile-sec">
