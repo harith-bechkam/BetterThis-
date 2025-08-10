@@ -2,8 +2,11 @@ import { GiHamburgerMenu } from "react-icons/gi"
 import { Offcanvas } from "react-bootstrap"
 import { useState, useRef } from "react"
 import { FaPlus, FaMinus, FaCheckCircle, FaStar, FaCog } from "react-icons/fa"
+import { useNavigate } from "react-router-dom"
 
 const Bar = ({ logoText = "BetterThis", menuRef, isMobile, menuOpen, setMenuOpen }) => {
+
+    const navigate = useNavigate()
     const [servicesOpen, setServicesOpen] = useState(false)
     const [showServicesDropdown, setShowServicesDropdown] = useState(false)
 
@@ -80,7 +83,7 @@ const Bar = ({ logoText = "BetterThis", menuRef, isMobile, menuOpen, setMenuOpen
                                     </ul>
                                 )}
 
-                                <li>Inside BetterThis</li>
+                                <li onClick={() => navigate("/about")}>Inside BetterThis</li>
                                 <li>Products</li>
                                 <li>Courses</li>
                             </ul>
@@ -175,10 +178,10 @@ const Bar = ({ logoText = "BetterThis", menuRef, isMobile, menuOpen, setMenuOpen
                             </div>
                         )}
                     </li>
-                    <li className="inside-betterthis">Inside BetterThis</li>
+                    <li className="inside-betterthis" onClick={() => navigate("/about")}>Inside BetterThis</li>
                     <li>Products</li>
                     <li>Courses</li>
-                    <button>Contact Us</button>
+                    <button onClick={() => navigate("/contact")}>Contact Us</button>
                 </ul>
             )}
         </nav>

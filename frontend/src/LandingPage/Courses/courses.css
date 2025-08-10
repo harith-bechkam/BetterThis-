@@ -40,7 +40,7 @@ gap: 42px;
 
 .card {
   background: #fff;
-  border: 3px solid #333;
+  /* border: 3px solid #333; */
   border-radius: 24px;
   overflow: hidden;
   text-align: left;

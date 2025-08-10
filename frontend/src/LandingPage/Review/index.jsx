@@ -1,6 +1,8 @@
+import { useNavigate } from 'react-router-dom';
 import './review.css';
 
 const Index = () => {
+    const navigate = useNavigate()
 
     const images = [
         { img: "../asset/image/fullstack.jpg" },
@@ -31,7 +33,7 @@ const Index = () => {
                 </div>
 
                 <div>
-                    <button className="join-btn">Join Our Talent</button>
+                    <button className="join-btn" onClick={() => navigate("/contact")}>Join Our Talent</button>
                 </div>
 
                 <div className="rutConnect">
