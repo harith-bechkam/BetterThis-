@@ -11,8 +11,11 @@ import Particle from "./Particle";
 import { AnimatePresence, motion } from "framer-motion";
 import { op1, op2, globeOptions } from './options'
 import Bar from "./Bar"
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+
+  const navigate = useNavigate()
   const heroRef = useRef(null)
   const menuRef = useRef(null)
   const [showNavbar, setShowNavbar] = useState(false)
@@ -61,7 +64,7 @@ const Home = () => {
         >
           <h1>Experience The Digital Transformation</h1>
           <span>A new place for consumer engagement with immersive experiences while building community</span>
-          <p>Let's Traverse</p>
+          <p onClick={() => navigate('/about')}>Let's Traverse</p>
         </div>
       ),
     },
@@ -75,7 +78,7 @@ const Home = () => {
           >
             <h1>Outcome-based Innovation</h1>
             <span>Transform business with client-centered intelligent cloud solutions delivering intelligence, visiblity and smart technology</span>
-            <p>Let's Traverse</p>
+            <p onClick={() => navigate('/about')}>Let's Traverse</p>
           </div>
         </>
       ),
@@ -89,7 +92,7 @@ const Home = () => {
         >
           <h1>Intuitive Intelligence Re-engineered</h1>
           <span>Operate with human insight, but at exceptional speed with the power to anticipate and act instantaneously</span>
-          <p>Let's Traverse</p>
+          <p onClick={() => navigate('/about')}>Let's Traverse</p>
         </div>
       ),
     },

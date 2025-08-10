@@ -5,14 +5,24 @@ const Index = () => {
     const navigate = useNavigate()
 
     const images = [
-        { img: "../asset/image/fullstack.jpg" },
-        { img: "../asset/image/frontend.jpg" },
-        { img: "../asset/image/backend.jpg" },
-        { img: "../asset/image/database.jpg" },
-        { img: "../asset/image/frontend.jpg" },
-    ];
+        { img: "../asset/image/sparkels/1.jpeg" },
+        { img: "../asset/image/sparkels/2.jpeg" },
+        { img: "../asset/image/sparkels/3.jpeg" },
+        { img: "../asset/image/sparkels/4.jpeg" },
+        { img: "../asset/image/sparkels/5.jpeg" },
+        { img: "../asset/image/sparkels/6.jpeg" },
+        { img: "../asset/image/sparkels/7.jpeg" },
+        { img: "../asset/image/sparkels/8.jpeg" },
+        { img: "../asset/image/sparkels/9.jpeg" },
+        { img: "../asset/image/sparkels/10.jpeg" },
+        { img: "../asset/image/sparkels/11.jpeg" },
+        { img: "../asset/image/sparkels/12.jpeg" },
+        { img: "../asset/image/sparkels/13.jpeg" },
+        { img: "../asset/image/sparkels/14.jpeg" },
+        { img: "../asset/image/sparkels/15.jpeg" }
+    ]
 
-    const totalImagesNeeded = 34 * 2;
+    const totalImagesNeeded = 34 * 3;
 
     let repeatedImages = Array.from({ length: totalImagesNeeded }, (_, i) => {
         return images[i % images.length];
@@ -49,11 +59,26 @@ const Index = () => {
                     <span className="overlay-span-text">Students Experience Reimagined</span>
                 </div>
 
-                <div className="image-row">
+                {/* <div className="image-row">
                     {repeatedImages.map((item, index) => (
                         <img key={index} src={item.img} alt={`img-${index}`} />
                     ))}
+                </div> */}
+
+                <div className="image-row">
+                    {repeatedImages.map((item, index) => {
+                        let extraClass = ''
+                        if (index % 10 == 0) extraClass = 'big'
+                        else if (index % 7 == 0) extraClass = 'tall'
+                        else if (index % 5 == 0) extraClass = 'wide'
+
+                        return (
+                            <img key={index} src={item.img} alt={`img-${index}`} className={extraClass} />
+                        )
+                    })}
                 </div>
+
+
             </div>
 
             <div className="divider-wrapper">
@@ -64,7 +89,7 @@ const Index = () => {
 
 
         </section>
-    );
+    )
 }
 
 export default Index;

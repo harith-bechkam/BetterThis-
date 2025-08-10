@@ -10,6 +10,7 @@ import ScrollToTop from './ScrollToTop'
 import Review from './LandingPage/Review'
 import About from './Pages/Aboutall/About_all'
 import Contact from './Pages/ContactPage/ContactPage'
+import Framer from './framer'
 
 function App() {
   return (
@@ -21,12 +22,12 @@ function App() {
           element={
             <>
               <Home />
-              <Services />
-              <Courses />
-              <UpcomingActivity />
-              <Beforeafter />
-              <StatsSection />
-              <Review />
+              <Framer delay={0.1}><Services /></Framer>
+              <Framer delay={0.2}><Courses /></Framer>
+              <Framer delay={0.3}><UpcomingActivity /></Framer>
+              <Framer delay={0.4}><Beforeafter /></Framer>
+              <Framer delay={0.5}><StatsSection /></Framer>
+              <Framer delay={0.6}><Review /></Framer>
               <Footer />
             </>
           }
