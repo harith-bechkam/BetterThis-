@@ -112,3 +112,31 @@
     font-size: 14px;
   }
 }
+.comparison-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px; /* Larger screens get more space */
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  .comparison-container {
+    aspect-ratio: 4 / 3; /* Better fit for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .comparison-container {
+    aspect-ratio: 1 / 1; /* Square for very small screens */
+  }
+}
+.before-image,
+.after-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* instead of cover */
+  background-color: black; /* optional, fills empty space */
+}

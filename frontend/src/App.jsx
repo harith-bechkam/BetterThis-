@@ -10,7 +10,7 @@ import ScrollToTop from './ScrollToTop'
 import Review from './LandingPage/Review'
 import About from './Pages/Aboutall/About_all'
 import Contact from './Pages/ContactPage/ContactPage'
-
+import CourseList from './Pages/CourseList/CourseList'
 function App() {
   return (
     <Router>

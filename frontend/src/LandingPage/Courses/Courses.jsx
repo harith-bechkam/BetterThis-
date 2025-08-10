@@ -30,14 +30,14 @@ const Courses = () => {
        < div>
          <Row className="align-items-center">
         {/* Left Section */}
-        <Col xs={12} md={8}>
-          <h2 className="fw-bold">Courses We Offer</h2>
-          <p className="text-muted" style={{ maxWidth: "600px" }}>
-            Mauris at ultrices odio. Duis eget lorem non turpis feugiat
-            accumsan ac non tortor. Donec porttitor nulla dolor, eget hendrerit
-            ex egestas nec.
-          </p>
-        </Col>
+       <Col xs={12} md={8}>
+  <h2 className="fw-bold">Courses We Offer</h2>
+  <p className="text-muted" style={{ maxWidth: "600px" }}>
+    Explore our range of expertly designed courses that combine practical skills 
+    with industry knowledge—helping you advance your career, grow your business, 
+    and stay ahead in today’s competitive world.
+  </p>
+</Col>
 
         {/* Right Section - Navigation Buttons */}
        <Col

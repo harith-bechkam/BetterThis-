@@ -1,15 +1,16 @@
+.home-service-sectn {
+  padding: 4rem 60px;
+}
+
 .industry-scroll-container {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   overflow-x: hidden;
-  overflow-y: hidden;
   scroll-behavior: smooth;
   padding-bottom: 10px;
-  margin-top: 4%;
 }
-.home-service-sectn{
-  padding :4rem 60px
-}
+
+/* Hide scrollbar visually but keep scroll working */
 .industry-scroll-container::-webkit-scrollbar {
   height: 8px;
 }
@@ -18,115 +19,17 @@
   border-radius: 4px;
 }
 
+/* Card responsive */
 .industry-card {
   flex: 0 0 auto;
-  width: 300px;
-  background: transparent;
+  width: clamp(240px, 30vw, 342px);
 }
 
+/* Image wrapper responsive */
 .image-wrapper {
   position: relative;
-  width: 350px !important;
-  height: 350px !important;
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-.image-wrapper img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.overlay {
-  position: absolute;
-  bottom: 15px;
-  left: 15px;
-  background: white;
-  padding: 6px 12px;
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.avatar-group {
-  display: flex;
-  align-items: center;
-}
-.avatar {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid white;
-  margin-left: -6px;
-}
-.avatar:first-child {
-  margin-left: 0;
-}
-
-.overlay-label {
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.text-section {
-  margin-top: 12px;
-}
-.card-title {
-  font-weight: 700;
-  font-size: 18px;
-  color: #1a1a3d;
-  margin-bottom: 6px;
-}
-.card-description {
-  font-size: 14px;
-  line-height: 1.4;
-  color: #444;
-}
-.industry-scroll-container {
-  display: flex;
-  gap: 24px; /* gap between cards */
-  overflow-x: hidden;
-  overflow-y: hidden;
-  scroll-behavior: smooth;
-  padding-bottom: 10px;
-}
-
-.industry-scroll-container::-webkit-scrollbar {
-  height: 8px;
-}
-.industry-scroll-container::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 4px;
-}
-
-.industry-card {
-  flex: 0 0 auto;
-  width: 342px; /* fixed width */
-}
-
-.image-wrapper {
-  position: relative;
-  width: 342px; /* fixed width */
-  height: 500px; /* fixed height */
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-.image-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Rest of your overlay/avatars styles remain same */
-/* Image hover zoom & dark overlay */
-.image-wrapper {
-  position: relative;
-  width: 342px;
-  height: 500px;
+  aspect-ratio: 3 / 4; /* Keeps height proportional */
   border-radius: 16px;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -139,18 +42,17 @@
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
+/* Hover effect */
 .image-wrapper:hover img {
-  transform: scale(1.05); /* zoom */
-  filter: brightness(0.85); /* slightly darken */
+  transform: scale(1.05);
+  filter: brightness(0.85);
 }
 
-/* Highlight title on hover */
 .industry-card:hover .card-title {
-  color: #007bff; /* Bootstrap primary blue */
+  color: #007bff;
   text-decoration: underline;
 }
 
-/* Smooth transition for title */
 .card-title {
   font-weight: 700;
   font-size: 18px;
@@ -158,23 +60,37 @@
   margin-bottom: 6px;
   transition: color 0.3s ease, text-decoration 0.3s ease;
 }
-/* Hide buttons on small screens */
+
+.card-description {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #444;
+}
+
+/* Mobile adjustments */
 @media (max-width: 768px) {
   .scroll-buttons {
     display: none !important;
   }
-
-  /* Allow mobile horizontal scrolling */
   .industry-scroll-container {
-    overflow-x: auto; /* enable scroll */
-    -webkit-overflow-scrolling: touch; /* smooth iOS scroll */
-
-    /* Hide scrollbar but keep scroll working */
-    scrollbar-width: none; /* Firefox */
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
-
   .industry-scroll-container::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Edge */
+    display: none;
   }
 }
 
+/* Extra small devices */
+@media (max-width: 576px) {
+  .home-service-sectn {
+    padding: 2rem 20px;
+  }
+  .card-title {
+    font-size: 16px;
+  }
+  .card-description {
+    font-size: 13px;
+  }
+}
