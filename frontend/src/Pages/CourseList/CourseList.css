@@ -11,13 +11,12 @@
   gap: 10px;
   overflow-x: auto;
   white-space: nowrap;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   flex: 1;
 }
-
 .categories-slider::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+  display: none;
 }
 
 .category-btn {
@@ -65,23 +64,54 @@
   object-fit: cover;
 }
 
+/* Text Section */
 .text-section {
   padding: 20px;
 }
-
 .name {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 5px;
 }
-
 .designation {
   color: #ffcc66;
   margin-bottom: 10px;
 }
-
 .description {
   font-size: 14px;
   color: #ccc;
   line-height: 1.4;
+}
+
+/* ===== Responsive Fixes ===== */
+@media (max-width: 768px) {
+  /* Stack image above text on mobile */
+  .profile-card .row {
+    flex-direction: column;
+  }
+  
+  .image-section {
+    height: auto;
+  }
+
+  .profile-img {
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+  }
+
+  .text-section {
+    padding: 15px;
+    text-align: center;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Tablet adjustments */
+  .text-section {
+    padding: 15px;
+  }
+  .name {
+    font-size: 18px;
+  }
 }

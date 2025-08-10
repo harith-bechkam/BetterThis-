@@ -29,14 +29,15 @@ const stats = [
 ];
 
 const logos = [
-"../asset/image/c1.png",
-"../asset/image/c2.png",
-"../asset/image/c3.png",
-"../asset/image/c4.png",
-"../asset/image/c5.png",
-"../asset/image/c6.png",
-"../asset/image/c7.png",
-"../asset/image/c8.png",
+"../asset/image/cloudflare.png",
+
+"../asset/image/grok.png",
+"../asset/image/instagram.png",
+"../asset/image/openai.png",
+"../asset/image/tiktok.png",
+"../asset/image/google.png",
+"../asset/image/stripe.png",
+"../asset/image/amazon-aws.png",
 ];
 
 const StatsSection = () => {
