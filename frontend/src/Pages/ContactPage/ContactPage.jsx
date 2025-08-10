@@ -1,5 +1,4 @@
 import React from 'react';
-import HomeImage from '../../assets/Background.jpg';
 import './ContactPage.css'; // for custom styles
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaPhoneAlt, FaEnvelope, FaHeadphones } from 'react-icons/fa';

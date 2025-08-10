@@ -3,7 +3,7 @@ import "./About_all.css";
 import mainImage from "../../assets/Mask group.png"; // replace with your main image
 import sideImage from "../../assets/young-indian-man-with-laptop-gray-wall 1.png"; // replace with your side image
 import { FaAward, FaQuestionCircle, FaHeadset } from "react-icons/fa";
-import StatsSection from '../../Pages/StatsSection/StatsSection';
+import StatsSection from '../../LandingPage/StatsSection/StatsSection';
 
 const Aboutall = () => {
   return (
