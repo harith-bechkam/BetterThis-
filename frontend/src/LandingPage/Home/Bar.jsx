@@ -85,7 +85,7 @@ const Bar = ({ logoText = "BetterThis", menuRef, isMobile, menuOpen, setMenuOpen
 
                                 <li onClick={() => navigate("/about")}>Inside BetterThis</li>
                                 <li>Products</li>
-                                <li>Courses</li>
+                                <li onClick={() => navigate('/courselist')}>Courses</li>
                             </ul>
                         </Offcanvas.Body>
                     </Offcanvas>
@@ -180,7 +180,7 @@ const Bar = ({ logoText = "BetterThis", menuRef, isMobile, menuOpen, setMenuOpen
                     </li>
                     <li className="inside-betterthis" onClick={() => navigate("/about")}>Inside BetterThis</li>
                     <li>Products</li>
-                    <li>Courses</li>
+                    <li onClick={() => navigate('/courselist')}>Courses</li>
                     <button onClick={() => navigate("/contact")}>Contact Us</button>
                 </ul>
             )}
