@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { Container, Card, Button ,Col,Row} from "react-bootstrap";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "./courses.css";
+import { useNavigate } from "react-router-dom";
 
 const courses = [
   { title: "Full Stack", rating: "4.9", img: "../asset/image/fullstack.jpg" },
@@ -14,7 +15,7 @@ const courses = [
 
 const Courses = () => {
   const scrollRef = useRef();
-
+ const navigate = useNavigate();
   const scroll = (direction) => {
     if (!scrollRef.current) return;
     const cardWidth = scrollRef.current.firstChild.offsetWidth + 20; // card width + gap
@@ -114,7 +115,11 @@ const Courses = () => {
         </div>
 
         <div className="text-center mt-4">
-          <Button variant="dark" className="px-4 py-2 rounded-3">
+          <Button
+            variant="dark"
+            className="px-4 py-2 rounded-3"
+            onClick={() => navigate("/courselist")} // ✅ Navigate on click
+          >
             View All <i className="fa-solid fa-arrow-right ms-2"></i>
           </Button>
         </div>

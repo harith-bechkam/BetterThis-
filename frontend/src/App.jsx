@@ -12,6 +12,7 @@ import About from './Pages/Aboutall/About_all'
 import Contact from './Pages/ContactPage/ContactPage'
 import Framer from './framer'
 
+
 import CourseList from './Pages/CourseList/CourseList'
 function App() {
   return (
