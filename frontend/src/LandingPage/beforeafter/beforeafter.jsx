@@ -2,24 +2,34 @@ import React, { useState, useRef, useEffect } from "react";
 import "./beforeafter.css";
 
 const Beforeafter = () => {
-  const [sliderPos, setSliderPos] = useState(0); // start from left
-  const [isAnimating, setIsAnimating] = useState(true);
+  const [sliderPos, setSliderPos] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
   const containerRef = useRef(null);
 
   useEffect(() => {
-    // Animate from left to center on mount
-    const timer = setTimeout(() => {
-      setSliderPos(50); // move to center
-      setTimeout(() => {
-        setIsAnimating(false); // allow dragging after animation
-      }, 1500); // match CSS transition duration
-    }, 300);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsAnimating(true);
+          setSliderPos(50); // Animate to center
+          setTimeout(() => {
+            setIsAnimating(false);
+          }, 1500);
+          observer.disconnect(); // Only trigger once
+        }
+      },
+      { threshold: 0.4 } // Trigger when 40% of section is visible
+    );
 
-    return () => clearTimeout(timer);
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
   }, []);
 
   const handleMove = (clientX) => {
-    if (!containerRef.current || isAnimating) return; // block during animation
+    if (!containerRef.current || isAnimating) return;
     const bounds = containerRef.current.getBoundingClientRect();
     const position = ((clientX - bounds.left) / bounds.width) * 100;
     setSliderPos(Math.min(100, Math.max(0, position)));
@@ -27,7 +37,7 @@ const Beforeafter = () => {
 
   const handleMouseDown = (e) => {
     e.preventDefault();
-    if (isAnimating) return; // don't drag during animation
+    if (isAnimating) return;
     const moveHandler = (event) =>
       handleMove(event.clientX || event.touches[0].clientX);
     const upHandler = () => {
@@ -43,17 +53,18 @@ const Beforeafter = () => {
   };
 
   return (
-    <div className="comparison-section">
-    <h2>
-  There's no comparison.
-  <br /> Honestly. We'll show you.
-</h2>
-<p className="subtitle">
-  Mauris at ultrices odio. Duis eget lorem non turpis feugiat accumsan ac non
-  tortor. Donec porttitor nulla dolor, eget hendrerit ex egestas nec.
+    <div className="comparison-section" ref={containerRef}>
+      <h2>
+        There's no comparison.
+        <br /> Honestly. We'll show you.
+      </h2>
+      <p className="subtitle">
+  We help businesses transform ideas into impactful solutions.  
+  From strategy to execution, our process delivers measurable results  
+  that set you apart from the competition.
 </p>
 
-      <div className="comparison-container" ref={containerRef}>
+      <div className="comparison-container">
         <img src="../asset/image/before1.png" alt="Before" className="before-image" />
 
         <div
@@ -63,13 +74,11 @@ const Beforeafter = () => {
           <img src="../asset/image/after1.png" alt="After" className="after-image" />
         </div>
 
-        {/* Vertical Divider */}
         <div
           className={`divider-line ${isAnimating ? "animating" : ""}`}
           style={{ left: `${sliderPos}%` }}
         ></div>
 
-        {/* Handle */}
         <div
           className={`slider-handle ${isAnimating ? "animating" : ""}`}
           style={{ left: `${sliderPos}%` }}
@@ -80,7 +89,6 @@ const Beforeafter = () => {
           <div className="arrow right">›</div>
         </div>
 
-        {/* Labels */}
         {sliderPos > 10 && <span className="label before-label">Before</span>}
         {sliderPos < 90 && <span className="label after-label">After</span>}
       </div>

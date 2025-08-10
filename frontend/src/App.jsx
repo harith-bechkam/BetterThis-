@@ -12,6 +12,7 @@ import About from './Pages/Aboutall/About_all'
 import Contact from './Pages/ContactPage/ContactPage'
 import Framer from './framer'
 
+import CourseList from './Pages/CourseList/CourseList'
 function App() {
   return (
     <Router>
@@ -33,6 +34,9 @@ function App() {
           }
         />
         <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact/>} />
+         <Route path="/courselist" element={<CourseList />} />
+        {/* <Route path="/services" element={<Services />} /> */}
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
