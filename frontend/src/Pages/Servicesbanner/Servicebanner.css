@@ -26,7 +26,7 @@
 
 .sticky-image img {
   max-width: 90%;
-  height: auto;
+  height: 70%;
   border-radius: 10px;
   transition: opacity 0.5s ease-in-out, transform 0.4s ease-in-out;
 }
@@ -68,3 +68,21 @@
     border: 1px solid #000;
     width: 138px;
 }
+
+@media (max-width: 767px) {
+  .mobile-image {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .mobile-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .sticky-image-column {
+    display: none !important; /* Fully hide sticky column */
+  }
+}
+

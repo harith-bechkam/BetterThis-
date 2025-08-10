@@ -1,132 +1,110 @@
-import React, { useRef } from "react";
-import { Container, Button, Row, Col } from "react-bootstrap";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import "./services.css";
+import React, { useState, useEffect, useRef } from "react";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import { FaProjectDiagram, FaUsers, FaHandshake } from "react-icons/fa";
+import { useNavigate } from "react-router-dom"; // ✅ Import for navigation
+import "./Services.css";
 
-const industries = [
+const sections = [
   {
-    title: "Web Application",
+    label: "SERVICE",
+    title: "Product Engineering",
     description:
-      "Design and develop scalable, high-performance web solutions tailored to streamline operations, boost client engagement, and grow your business.",
-    img: "../asset/image/webdesign.jpg",
-    overlayText: "Add feedback",
+      "Our team of adept engineers merge creativity, proficiency, and state-of-the-art tools to metamorphose your concepts into market-ready products.",
+    image: "../asset/image/91.png"
   },
   {
-    title: "Mobile Application",
+    label: "SERVICE",
+    title: "AI & Machine Learning",
     description:
-      "Build intuitive mobile apps that enhance customer experience, improve brand visibility, and drive business growth across platforms.",
-    img: "../asset/image/mobileapp.jpg",
-    overlayText: "Reporting",
+      "Innovatively leverages cutting-edge AI & Machine Learning to fortify C-suite decisions and automate insights.",
+    image: "../asset/image/92.png"
   },
   {
-    title: "Testing",
+    label: "SERVICE",
+    title: "Cloud Services",
     description:
-      "Ensure flawless performance through rigorous functional, security, and usability testing — safeguarding your brand and customer trust.",
-    img: "../asset/image/testing.jpg",
-    overlayText: "Reporting",
-  },
-  {
-    title: "AI",
-    description:
-      "Integrate AI-driven solutions to automate workflows, optimize decision-making, and gain a competitive edge in your industry.",
-    img: "../asset/image/ai.jpg",
-    overlayText: "Reporting",
-  },
-  {
-    title: "Cybersecurity",
-    description:
-      "Protect your digital assets with advanced security measures, threat monitoring, and compliance solutions for business continuity.",
-    img: "../asset/image/cyber.jpg",
-    overlayText: "Reporting",
-  },
-  {
-    title: "IOT",
-    description:
-      "Leverage IoT technologies to connect devices, collect actionable data, and drive smarter, data-backed business strategies.",
-    img: "../asset/image/iot.jpg",
-    overlayText: "Tagged updates",
-  },
-  {
-    title: "SEO",
-    description:
-      "Boost your online visibility with SEO strategies that attract quality leads, strengthen brand authority, and increase conversions.",
-    img: "../asset/image/seo.jpg",
-    overlayText: "Created",
+      "We specialize in integrating cloud strategies with business goals for organizations embracing digital transformation.",
+    image: "../asset/image/93.png"
   },
 ];
 
+const WhatWeDoBest = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [fade, setFade] = useState(true);
+  const sectionRefs = useRef([]);
+  const navigate = useNavigate(); // ✅ initialize navigation
 
-export default function IndustryCards() {
-  const scrollRef = useRef();
+  useEffect(() => {
+    const handleScroll = () => {
+      sectionRefs.current.forEach((ref, index) => {
+        if (ref) {
+          const rect = ref.getBoundingClientRect();
+          if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
+            if (index !== activeIndex) {
+              setFade(false);
+              setTimeout(() => {
+                setActiveIndex(index);
+                setFade(true);
+              }, 200);
+            }
+          }
+        }
+      });
+    };
 
-  const scroll = (direction) => {
-    if (!scrollRef.current) return;
-    const containerWidth = scrollRef.current.offsetWidth;
-    scrollRef.current.scrollBy({
-      left: direction === "left" ? -containerWidth : containerWidth,
-      behavior: "smooth",
-    });
-  };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [activeIndex]);
 
   return (
-    <div className="home-service-sectn">
-      {/* Heading + Nav Buttons */}
-      <Row className="align-items-center">
-        <Col xs={12} md={8}>
-          <h2 className="fw-bold">Whatever client work you do,</h2>
-          <h2 className="fw-bold">BETTERTHIS works for you.</h2>
-        </Col>
+    <>
+   
+      <Container fluid className="what-we-do-section">
+        <Row>
+          {/* Left Sticky Image */}
+          <Col md={6} className="sticky-image-column">
+            <div className="sticky-image">
+              <img
+                src={sections[activeIndex].image}
+                alt={sections[activeIndex].title}
+                style={{ opacity: fade ? 1 : 0 }}
+              />
+            </div>
+          </Col>
 
-        <Col
-          xs={12}
-          md={4}
-          className="d-flex justify-content-md-end justify-content-start mt-3 mt-md-0 scroll-buttons"
+          {/* Right Content */}
+          <Col md={6} className="content-column">
+            {sections.map((sec, index) => (
+              <div
+                key={index}
+                className="content-block"
+                ref={(el) => (sectionRefs.current[index] = el)}
+              >
+                <p className="service-label">{sec.label}</p>
+                <h2>{sec.title}</h2>
+                <p>{sec.description}</p>
+                <Button variant="outline-dark" className="read-more-btn">
+                  READ MORE <span className="arrow-icon">↗</span>
+                </Button>
+                <hr className="section-divider" />
+              </div>
+            ))}
+          </Col>
+        </Row>
+      </Container>
+
+      {/* View All Services Button */}
+      <div className="text-center mt-4">
+        <Button
+          variant="dark"
+          className="view-all-btn"
+          onClick={() => navigate("/Servicesall")} // ✅ Navigate on click
         >
-          <div className="d-flex gap-3">
-            <Button
-              variant="light"
-              className="rounded-circle p-2"
-              onClick={() => scroll("left")}
-              style={{
-                width: "40px",
-                height: "40px",
-                backgroundColor: "#d9d9d9",
-                border: "none",
-              }}
-            >
-              <FaChevronLeft />
-            </Button>
-            <Button
-              variant="light"
-              className="rounded-circle p-2"
-              onClick={() => scroll("right")}
-              style={{
-                width: "40px",
-                height: "40px",
-                backgroundColor: "#d9d9d9",
-                border: "none",
-              }}
-            >
-              <FaChevronRight />
-            </Button>
-          </div>
-        </Col>
-      </Row>
-
-      {/* Scrollable Cards */}
-      <div className="industry-scroll-container" ref={scrollRef}>
-        {industries.map((item, idx) => (
-          <div key={idx} className="industry-card">
-            <div className="image-wrapper">
-              <img src={item.img} alt={item.title} />
-            </div>
-            <div className="text-section">
-              <h5 className="card-title">{item.title}</h5>
-              <p className="card-description">{item.description}</p>
-            </div>
-          </div>
-        ))}
+          VIEW ALL SERVICES
+        </Button>
       </div>
-    </div>
+    </>
   );
-}
+};
+
+export default WhatWeDoBest;

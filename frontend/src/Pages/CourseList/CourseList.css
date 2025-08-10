@@ -1,4 +1,91 @@
-/* ===== Categories Slider ===== */
+/* Categories Slider */
+.categories-slider {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 10px 20px;
+  white-space: nowrap;
+  scrollbar-width: thin;
+}
+
+.categories-slider::-webkit-scrollbar {
+  height: 6px;
+}
+
+.categories-slider::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.category-btn {
+  flex-shrink: 0;
+  border-radius: 50px;
+  padding: 8px 15px;
+  font-size: 14px;
+}
+
+
+.profile-card {
+  background-color: #1a1a1a;
+  color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+  height: 100%;
+}
+
+.image-section {
+  height: 100%;
+  overflow: hidden;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text-section {
+  padding: 20px;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.designation {
+  color: #ffcc66;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.4;
+}
+/* Categories Slider */
+.categories-slider {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 10px 20px;
+  white-space: nowrap;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+}
+
+.categories-slider::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, Opera */
+}
+
+.category-btn {
+  flex-shrink: 0;
+  border-radius: 50px;
+  padding: 8px 15px;
+  font-size: 14px;
+}
 .categories-slider-wrapper {
   display: flex;
   align-items: center;
@@ -15,6 +102,44 @@
   -ms-overflow-style: none;
   flex: 1;
 }
+
+.categories-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.category-btn {
+  flex-shrink: 0;
+  border-radius: 50px;
+  padding: 8px 15px;
+  font-size: 14px;
+}
+
+.slider-btn {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.categories-slider-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+}
+
+.categories-slider {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  flex: 1;
+}
+
 .categories-slider::-webkit-scrollbar {
   display: none;
 }
@@ -36,82 +161,9 @@
   align-items: center;
 }
 
-/* Hide arrows on mobile */
+/* HIDE slider arrows on mobile */
 @media (max-width: 768px) {
   .slider-btn {
     display: none !important;
-  }
-}
-
-/* ===== Profile Card ===== */
-.profile-card {
-  background-color: #1a1a1a;
-  color: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
-  height: 100%;
-}
-
-.image-section {
-  height: 100%;
-  overflow: hidden;
-}
-
-.profile-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Text Section */
-.text-section {
-  padding: 20px;
-}
-.name {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-.designation {
-  color: #ffcc66;
-  margin-bottom: 10px;
-}
-.description {
-  font-size: 14px;
-  color: #ccc;
-  line-height: 1.4;
-}
-
-/* ===== Responsive Fixes ===== */
-@media (max-width: 768px) {
-  /* Stack image above text on mobile */
-  .profile-card .row {
-    flex-direction: column;
-  }
-  
-  .image-section {
-    height: auto;
-  }
-
-  .profile-img {
-    width: 100%;
-    height: auto;
-    min-height: 200px;
-  }
-
-  .text-section {
-    padding: 15px;
-    text-align: center;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  /* Tablet adjustments */
-  .text-section {
-    padding: 15px;
-  }
-  .name {
-    font-size: 18px;
   }
 }

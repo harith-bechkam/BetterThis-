@@ -1,34 +1,16 @@
-.section-title {
-  border-bottom: 2px solid #e0e0e0;
-  padding-bottom: 8px;
+.insight-card {
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
 }
 
-.date-box h4 {
-  font-size: 1.5rem;
+.insight-img-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-.news-img {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-}
-
-/* Mobile Adjustments */
-@media (max-width: 576px) {
-  .date-box {
-    padding-right: 10px;
-  }
-
-  .date-box h4 {
-    font-size: 1.2rem;
-  }
-
-  .news-img {
-    width: 40px;
-    height: 40px;
-  }
-
-  p, small {
-    font-size: 0.9rem;
-  }
+/* Push down the right card image */
+.offset-card .insight-img-wrapper {
+  margin-top: 50px; /* adjust this for alignment */
 }
