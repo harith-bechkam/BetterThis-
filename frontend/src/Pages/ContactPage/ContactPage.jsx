@@ -5,6 +5,7 @@ import { FaPhoneAlt, FaEnvelope, FaHeadphones } from 'react-icons/fa';
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from 'react-router-dom';
 import Framer from '../framer';
+import Footer from '../../LandingPage/Footer/Footer';
 function ContactPage() {
   return (
     <>
@@ -125,6 +126,7 @@ height: 650.0241088867188px,
 
           </div>
         </div>
+        <Footer />
       </Framer>
     </>
   );

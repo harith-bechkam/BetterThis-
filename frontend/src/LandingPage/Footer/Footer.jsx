@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {
   FaFacebookF,
   FaYoutube,
@@ -7,9 +7,45 @@ import {
 } from "react-icons/fa6";
 import "./Footer.css";
 import logo from '../../../public/fav.png';
-import { FaEnvelope, FaPhoneAlt } from "react-icons/fa";
+import { FaEnvelope, FaPhoneAlt } from "react-icons/fa"
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Footer = () => {
+
+  const navigate = useNavigate()
+  const location = useLocation();
+
+
+  const handleHome = () => {
+    navigate("/")
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    }, 0)
+  }
+
+  const handleAbout = () => {
+    if (location.pathname == "/about") {
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    } else {
+      navigate("/about")
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" })
+      }, 0)
+    }
+  }
+
+  const handleNavigateCourse = () => {
+    if (location.pathname == "/courselist") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/courselist")
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" })
+      }, 0)
+    }
+  }
+
+
   return (
     <>
       <footer>
@@ -45,11 +81,11 @@ const Footer = () => {
           <div className="footer-column quick-links">
             <h2>Quick Links</h2>
             <ul>
-              <li>Home</li>
+              <li onClick={handleHome}>Home</li>
               <li>Services</li>
-              <li>Inside BetterThis</li>
+              <li onClick={handleAbout}>Inside BetterThis</li>
               <li>Products</li>
-              <li>Courses</li>
+              <li onClick={handleNavigateCourse}>Courses</li>
             </ul>
           </div>
 
@@ -101,7 +137,7 @@ const Footer = () => {
       </div>
 
     </>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

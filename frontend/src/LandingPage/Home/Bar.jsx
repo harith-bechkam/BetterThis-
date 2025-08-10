@@ -2,11 +2,13 @@ import { GiHamburgerMenu } from "react-icons/gi"
 import { Offcanvas } from "react-bootstrap"
 import { useState, useRef } from "react"
 import { FaPlus, FaMinus, FaCheckCircle, FaStar, FaCog } from "react-icons/fa"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 
 const Bar = ({ logoText = "BetterThis", menuRef, isMobile, menuOpen, setMenuOpen }) => {
 
     const navigate = useNavigate()
+    const location = useLocation();
+
     const [servicesOpen, setServicesOpen] = useState(false)
     const [showServicesDropdown, setShowServicesDropdown] = useState(false)
 
@@ -32,6 +34,18 @@ const Bar = ({ logoText = "BetterThis", menuRef, isMobile, menuOpen, setMenuOpen
             setShowServicesDropdown(false)
         }, 200)
     }
+
+
+
+
+
+
+    const navigateAndScrollTop = (path) => {
+        navigate(path);
+        setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }, 0);
+    };
 
     return (
         <nav className="bar-container">
@@ -59,7 +73,7 @@ const Bar = ({ logoText = "BetterThis", menuRef, isMobile, menuOpen, setMenuOpen
                         <Offcanvas.Header closeButton />
                         <Offcanvas.Body>
                             <ul className="mobile-menu-list">
-                                <li>Home</li>
+                                <li onClick={()=>navigateAndScrollTop('/')}>Home</li>
 
                                 <li
                                     className="services-menu"
@@ -83,16 +97,16 @@ const Bar = ({ logoText = "BetterThis", menuRef, isMobile, menuOpen, setMenuOpen
                                     </ul>
                                 )}
 
-                                <li onClick={() => navigate("/about")}>Inside BetterThis</li>
+                                <li onClick={()=>navigateAndScrollTop('/about')}>Inside BetterThis</li>
                                 <li>Products</li>
-                                <li onClick={() => navigate('/courselist')}>Courses</li>
+                                <li onClick={()=>navigateAndScrollTop('/courselist')}>Courses</li>
                             </ul>
                         </Offcanvas.Body>
                     </Offcanvas>
                 </>
             ) : (
                 <ul className="nav-links">
-                    <li className="active">Home</li>
+                    <li className="active" onClick={()=>navigateAndScrollTop('/')}>Home</li>
 
                     <li
                         className="services-menu"
@@ -178,10 +192,10 @@ const Bar = ({ logoText = "BetterThis", menuRef, isMobile, menuOpen, setMenuOpen
                             </div>
                         )}
                     </li>
-                    <li className="inside-betterthis" onClick={() => navigate("/about")}>Inside BetterThis</li>
+                    <li className="inside-betterthis" onClick={()=>navigateAndScrollTop('/about')}>Inside BetterThis</li>
                     <li>Products</li>
-                    <li onClick={() => navigate('/courselist')}>Courses</li>
-                    <button onClick={() => navigate("/contact")}>Contact Us</button>
+                    <li onClick={()=>navigateAndScrollTop('/courselist')}>Courses</li>
+                    <button onClick={()=>navigateAndScrollTop('/contact')}>Contact Us</button>
                 </ul>
             )}
         </nav>

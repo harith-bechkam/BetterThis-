@@ -4,6 +4,7 @@ import sideImage from "../../assets/young-indian-man-with-laptop-gray-wall 1.png
 import { FaAward, FaQuestionCircle, FaHeadset } from "react-icons/fa";
 import StatsSection from '../../LandingPage/StatsSection/StatsSection';
 import Framer from "../framer";
+import Footer from "../../LandingPage/Footer/Footer";
 
 const Aboutall = () => {
   return (
@@ -83,6 +84,7 @@ const Aboutall = () => {
           </div>
         </div>
         <StatsSection />
+        <Footer />
       </Framer>
 
     </div>
