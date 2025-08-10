@@ -3,6 +3,7 @@ import Home from '../src/Pages/Home/Home';
 import About from './Pages/Aboutall/About_all';
 import Header from '../src/components/Headers/Header';
 import Contact from '../src/Pages/ContactPage/ContactPage'
+import CourseList from '../src/Pages/CourseList/CourseList'
 import './App.css';
 
 function App() {
@@ -13,8 +14,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact/>} />
-        {/* <Route path="/course" element={<Course />} />
-        <Route path="/services" element={<Services />} /> */}
+         <Route path="/courselist" element={<CourseList />} />
+        {/* <Route path="/services" element={<Services />} /> */}
       </Routes>
     </>
   );
