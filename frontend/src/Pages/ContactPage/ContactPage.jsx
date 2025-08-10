@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect, useRef, useState } from "react";
 import './ContactPage.css'; // for custom styles
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaPhoneAlt, FaEnvelope, FaHeadphones } from 'react-icons/fa';
@@ -6,10 +7,25 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from 'react-router-dom';
 import Framer from '../framer';
 import Footer from '../../LandingPage/Footer/Footer';
+import Navbar from '../../LandingPage/Home/Navbar';
+import '../../LandingPage/Home/home.css'
+
 function ContactPage() {
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
+  
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768)
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
   return (
     <>
 
+      <div className={`fixed-navbar ${true ? "visible" : ""}`}>
+        <Navbar isMobile={isMobile} showNavbar={true} />
+      </div>
 
       {/* Hero Section */}
       {/* <header className="hero-section text-white text-center py-5" style={{ backgroundImage: `url('../asset/image/backgroundimg.jpg')`,width: 1920px,

@@ -25,6 +25,20 @@
   top: 0;
 }
 
+.non-fixed-navbar {
+  position: fixed;
+  top: -80px;
+  left: 0;
+  width: 100%;
+  transition: top 0.4s ease-in-out;
+  z-index: 1000;
+}
+
+.non-fixed-navbar.visible {
+  top: 0;
+}
+
+
 .navbar {
   background: rgb(10, 10, 30);
   color: rgb(255, 255, 255);

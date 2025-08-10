@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./CourseList.css";
@@ -10,6 +10,10 @@ import {
 import { SiTensorflow, SiArduino } from "react-icons/si";
 import mainImage from "../../assets/Mask group.png"; // replace with your main image
 import sideImage from "../../assets/young-indian-man-with-laptop-gray-wall 1.png"; // replace with your side image
+import Navbar from "../../LandingPage/Home/Navbar";
+import '../../LandingPage/Home/home.css'
+import Framer from '../framer';
+import Footer from "../../LandingPage/Footer/Footer";
 
 const categories = [
   { icon: <FaCode />, title: "Web Development" },
@@ -54,6 +58,14 @@ const profiles = [
 const ProfileCard = () => {
   const sliderRef = useRef(null);
   const [activeCategory, setActiveCategory] = useState(categories[0].title);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
+
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768)
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
   const scrollLeft = () => sliderRef.current.scrollBy({ left: -200, behavior: "smooth" });
   const scrollRight = () => sliderRef.current.scrollBy({ left: 200, behavior: "smooth" });
@@ -62,77 +74,85 @@ const ProfileCard = () => {
     (profile) => profile.title === activeCategory
   );
 
+
   return (
     <>
+      <div className={`non-fixed-navbar ${true ? "visible" : ""}`}>
+        <Navbar isMobile={isMobile} showNavbar={true} />
+      </div>
+
       <div className="about-section">
 
-      {/* Top Banner */}
-      <div className="about-profile-sec">
-        <h2 className="about-text">Course Us</h2>
-      </div>
-
-     
-     
-
-    </div>
-    <div className="text-center py-5">
-       <h2 className="fw-bold">Streamline Your Course,</h2>
-      <h2 className="fw-bold text-primary">Supercharge Your Workflow</h2>
-      <p className="text-muted">
-        All-in-one platform to plan, collaborate, and deliver — faster and smarter.
-      </p>
-      <Button variant="dark" className="mb-4">Get started for Free</Button>
-    </div>
-    
-      {/* Categories Slider */}
-      <div className="categories-slider-wrapper">
-        <Button variant="dark" className="slider-btn" onClick={scrollLeft}>
-          <FaChevronLeft />
-        </Button>
-
-        <div className="categories-slider" ref={sliderRef}>
-          {categories.map((cat, index) => (
-            <Button
-              key={index}
-              variant={activeCategory === cat.title ? "primary" : "outline-secondary"}
-              className="category-btn"
-              onClick={() => setActiveCategory(cat.title)}
-            >
-              {cat.icon} {cat.title}
-            </Button>
-          ))}
+        {/* Top Banner */}
+        <div className="about-profile-sec">
+          <h2 className="about-text">Course Us</h2>
         </div>
 
-        <Button variant="dark" className="slider-btn" onClick={scrollRight}>
-          <FaChevronRight />
-        </Button>
-      </div>
 
-      {/* Profile Cards */}
-      <Container fluid className="profile-card-container py-4">
-        <Row className="g-4">
-          {filteredProfiles.length > 0 ? (
-            filteredProfiles.map((profile, idx) => (
-              <Col key={idx} xs={12} md={4}>
-                <div className="profile-card">
-                  <Row className="g-0 align-items-center">
-                    <Col xs={12} sm={5} className="image-section">
-                      <img src={profile.img} alt={profile.name} className="profile-img" />
-                    </Col>
-                    <Col xs={12} sm={7} className="text-section">
-                      <h2 className="name">{profile.name}</h2>
-                      <p className="designation">{profile.role}</p>
-                      <p className="description">{profile.desc}</p>
-                    </Col>
-                  </Row>
-                </div>
-              </Col>
-            ))
-          ) : (
-            <p className="text-light">No profiles found for this category.</p>
-          )}
-        </Row>
-      </Container>
+
+
+      </div>
+      <Framer delay={0.1}>
+        <div className="text-center py-5">
+          <h2 className="fw-bold">Streamline Your Course,</h2>
+          <h2 className="fw-bold text-primary">Supercharge Your Workflow</h2>
+          <p className="text-muted">
+            All-in-one platform to plan, collaborate, and deliver — faster and smarter.
+          </p>
+          <Button variant="dark" className="mb-4">Get started for Free</Button>
+        </div>
+
+        {/* Categories Slider */}
+        <div className="categories-slider-wrapper">
+          <Button variant="dark" className="slider-btn" onClick={scrollLeft}>
+            <FaChevronLeft />
+          </Button>
+
+          <div className="categories-slider" ref={sliderRef}>
+            {categories.map((cat, index) => (
+              <Button
+                key={index}
+                variant={activeCategory === cat.title ? "primary" : "outline-secondary"}
+                className="category-btn"
+                onClick={() => setActiveCategory(cat.title)}
+              >
+                {cat.icon} {cat.title}
+              </Button>
+            ))}
+          </div>
+
+          <Button variant="dark" className="slider-btn" onClick={scrollRight}>
+            <FaChevronRight />
+          </Button>
+        </div>
+
+        {/* Profile Cards */}
+        <Container fluid className="profile-card-container py-4">
+          <Row className="g-4">
+            {filteredProfiles.length > 0 ? (
+              filteredProfiles.map((profile, idx) => (
+                <Col key={idx} xs={12} md={4}>
+                  <div className="profile-card">
+                    <Row className="g-0 align-items-center">
+                      <Col xs={12} sm={5} className="image-section">
+                        <img src={profile.img} alt={profile.name} className="profile-img" />
+                      </Col>
+                      <Col xs={12} sm={7} className="text-section">
+                        <h2 className="name">{profile.name}</h2>
+                        <p className="designation">{profile.role}</p>
+                        <p className="description">{profile.desc}</p>
+                      </Col>
+                    </Row>
+                  </div>
+                </Col>
+              ))
+            ) : (
+              <p className="text-light">No profiles found for this category.</p>
+            )}
+          </Row>
+        </Container>
+        <Footer />
+      </Framer>
     </>
   );
 };
