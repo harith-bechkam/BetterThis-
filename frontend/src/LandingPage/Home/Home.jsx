@@ -112,12 +112,15 @@ const Home = () => {
           className="mySwiper"
           onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
           allowTouchMove={false}     // disable swipe/drag change
-        // keyboard={{ enabled: true }}  // disable keyboard nav
+          keyboard={{ enabled: true }}  // disable keyboard nav
         >
           {slides.map((slide, i) => (
             <SwiperSlide key={i}>
               <div style={{ position: "relative", height: "67rem", overflow: "hidden" }}>
-                <Particle options={slide.options} rekey={i} />
+                <div style={{ pointerEvents: 'none', position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 1 }}>
+                  <Particle options={slide.options} rekey={i} />
+                </div>
+
                 <div className="header" style={{ position: "absolute", top: "30px", left: 0, right: 0, zIndex: 10 }}>
                   <Bar logoText="BetterThis" menuRef={menuRef} isMobile={isMobile} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
                 </div>
@@ -134,6 +137,7 @@ const Home = () => {
                   </motion.div>
                 </div>
               </div>
+
             </SwiperSlide>
           ))}
         </Swiper>
