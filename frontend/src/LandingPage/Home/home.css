@@ -39,7 +39,7 @@
   justify-content: space-between;
   align-items: center;
   color: white;
-  padding: 1rem 2rem;
+  /* padding: 1rem 2rem; */
   z-index: 100;
   width: 100%;
   position: relative;
@@ -87,23 +87,30 @@
   border-bottom: 2px solid #f2b94e;
 }
 
+.nav-links li.inside-betterthis {
+  white-space: nowrap;
+  display: inline-block;
+}
 
-/* .nav-links button {
+.nav-links button {
   font-size: clamp(1.2rem, 1vw, 1rem);
-  font-weight: 600;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border: 2px solid #f2b94e;
-  background: transparent;
+  padding: 12px 20px;
+  background: linear-gradient(to right, #FB37FF, #AA00FF);
   color: #fff;
-  transition: all 0.3s ease;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: 200px;
+  max-width: 500px;
+  transition: background 0.3s ease;
 }
 
 .nav-links button:hover {
-  background-color: #f2b94e;
-  color: #000;
-} */
-
+  background: linear-gradient(to right, #e950e5, #b44fe4);
+}
 
 .custom-offcanvas.offcanvas-end {
   width: 25vw;
@@ -200,9 +207,6 @@
 }
 
 
-
-
-
 /* carousel */
 .carousel-slide img {
   width: 100%;
@@ -256,7 +260,7 @@
 
 
 .mySwiper .swiper-slide {
-  pointer-events: none; 
+  pointer-events: none;
   top: 0;
   left: 0;
   width: 100%;
@@ -268,10 +272,10 @@
 }
 
 .mySwiper .swiper-slide.swiper-slide-active {
-  pointer-events: auto;  
+  pointer-events: auto;
   opacity: 1;
-  display: block;      
-  z-index: 10;       
+  display: block;
+  z-index: 10;
 }
 
 
@@ -320,14 +324,15 @@
   transform: scale(1.05);
 }
 
+
 /* services dropdown */
 .services-dropdown {
   background-color: #fff;
   padding: 1rem 2rem;
   border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   display: flex;
-  gap: 3rem; 
+  gap: 3rem;
   color: #222;
   font-weight: 100;
   user-select: none;
@@ -343,8 +348,8 @@
 .services-dropdown ul li {
   display: flex;
   align-items: center;
-  white-space: nowrap;  
-  padding: 0.6rem 0;   
+  white-space: nowrap;
+  padding: 0.6rem 0;
   cursor: pointer;
   color: #222;
   transition: color 0.3s ease;
@@ -356,7 +361,7 @@
 
 .services-dropdown ul li span {
   margin-right: 0.75rem;
-  color: #895EF7;
+  /* color: #895EF7; */
   display: flex;
   align-items: center;
   flex-shrink: 0;

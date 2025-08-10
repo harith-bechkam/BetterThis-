@@ -116,10 +116,7 @@ const Bar = ({ logoText = "BetterThis", menuRef, isMobile, menuOpen, setMenuOpen
                                     minWidth: "300px",
                                     display: "flex",
                                     gap: "4rem",
-                                    color: "#222",
-                                    fontWeight: "100",
                                     userSelect: "none",
-                                    textDecoration: "none"
                                 }}
                             >
                                 <div style={{ flex: 1 }}>
@@ -134,12 +131,13 @@ const Bar = ({ logoText = "BetterThis", menuRef, isMobile, menuOpen, setMenuOpen
                                                     padding: "0.4rem 0",
                                                     cursor: "pointer",
                                                     color: "#222",
+                                                    fontWeight: 100,
                                                     transition: "color 0.3s",
                                                 }}
                                                 onMouseEnter={e => e.currentTarget.style.color = "#895EF7"}
                                                 onMouseLeave={e => e.currentTarget.style.color = "#222"}
                                             >
-                                                <span style={{ marginRight: "0.75rem", color: "#895EF7", display: "flex", alignItems: "center" }}>
+                                                <span style={{ marginRight: "0.75rem", display: "flex", alignItems: "center" }}>
                                                     {icon}
                                                 </span>
                                                 {label}
@@ -160,12 +158,13 @@ const Bar = ({ logoText = "BetterThis", menuRef, isMobile, menuOpen, setMenuOpen
                                                     padding: "0.4rem 0",
                                                     cursor: "pointer",
                                                     color: "#222",
+                                                    fontWeight: 100,
                                                     transition: "color 0.3s",
                                                 }}
                                                 onMouseEnter={e => e.currentTarget.style.color = "#895EF7"}
                                                 onMouseLeave={e => e.currentTarget.style.color = "#222"}
                                             >
-                                                <span style={{ marginRight: "0.75rem", color: "#895EF7", display: "flex", alignItems: "center" }}>
+                                                <span style={{ marginRight: "0.75rem", display: "flex", alignItems: "center" }}>
                                                     {icon}
                                                 </span>
                                                 {label}
@@ -176,9 +175,10 @@ const Bar = ({ logoText = "BetterThis", menuRef, isMobile, menuOpen, setMenuOpen
                             </div>
                         )}
                     </li>
-                    <li>Inside BetterThis</li>
+                    <li className="inside-betterthis">Inside BetterThis</li>
                     <li>Products</li>
                     <li>Courses</li>
+                    <button>Contact Us</button>
                 </ul>
             )}
         </nav>
