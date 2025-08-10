@@ -92,7 +92,7 @@ const Footer = () => {
             </div>
             <div className="contact-info">
               <span><FaPhoneAlt /> +91-44-43542070</span>
-              <span><FaEnvelope /> <a href="mailto:info@ikomet.com">info@ikomet.com</a></span>
+              <span><FaEnvelope /> <a href="mailto:info@ikomet.com">info@betterthis.com</a></span>
             </div>
 
           </div>

@@ -290,6 +290,7 @@
 }
 
 .expdf p {
+  color: #fff;
   font-size: clamp(1.2rem, 2.5vw, 1.5rem);
   font-weight: 700;
   border-bottom: 2px solid #f2b94e;
