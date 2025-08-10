@@ -67,7 +67,7 @@ const Home = () => {
     },
     {
       image: HomeImage,
-      options: op2,
+      options: op1,
       render: () => (
         <>
           <div
@@ -82,7 +82,7 @@ const Home = () => {
     },
     {
       image: HomeImage,
-      options: globeOptions,
+      options: op1,
       render: () => (
         <div
           className="expdf"

@@ -91,7 +91,7 @@ const Footer = () => {
               <a href="#">Disclaimers</a>
             </div>
             <div className="contact-info">
-              <span><FaPhoneAlt /> +91-44-43542070</span>
+              <span><FaPhoneAlt /> +1 (800) 123-4567</span>
               <span><FaEnvelope /> <a href="mailto:info@ikomet.com">info@betterthis.com</a></span>
             </div>
 
