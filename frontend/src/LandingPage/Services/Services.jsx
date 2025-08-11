@@ -74,21 +74,26 @@ const WhatWeDoBest = () => {
 
           {/* Right Content */}
           <Col md={6} className="content-column">
-            {sections.map((sec, index) => (
-              <div
-                key={index}
-                className="content-block"
-                ref={(el) => (sectionRefs.current[index] = el)}
-              >
-                <p className="service-label">{sec.label}</p>
-                <h2>{sec.title}</h2>
-                <p>{sec.description}</p>
-                <Button variant="outline-dark" className="read-more-btn">
-                  READ MORE <span className="arrow-icon">↗</span>
-                </Button>
-                <hr className="section-divider" />
-              </div>
-            ))}
+           {sections.map((sec, index) => (
+  <div
+    key={index}
+    className="content-block"
+    ref={(el) => (sectionRefs.current[index] = el)}
+  >
+    {/* Mobile image above content */}
+    <div className="mobile-image d-md-none">
+      <img src={sec.image} alt={sec.title} />
+    </div>
+
+    <p className="service-label">{sec.label}</p>
+    <h2>{sec.title}</h2>
+    <p>{sec.description}</p>
+    <Button variant="outline-dark" className="read-more-btn">
+      READ MORE <span className="arrow-icon">↗</span>
+    </Button>
+    <hr className="section-divider" />
+  </div>
+))}
           </Col>
         </Row>
       </Container>
