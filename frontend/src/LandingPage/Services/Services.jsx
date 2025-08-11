@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { FaProjectDiagram, FaUsers, FaHandshake } from "react-icons/fa";
 import { useNavigate } from "react-router-dom"; // ✅ Import for navigation
-import "./Services.css";
+import "./services.css";
 
 const sections = [
   {
