@@ -1,77 +1,79 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FaRegClock } from "react-icons/fa";
+import { Card, Row, Col } from "react-bootstrap";
+import { motion } from "framer-motion";
 import "./SeminarCard.css";
 
-const DashboardSection = () => {
-  const events = [
-    { date: "25", month: "Aug, 2017", title: "Salesforce Visual Workflow Complete Cisco Network", time: "8:00 AM - 12:00 PM" },
-    { date: "27", month: "Aug, 2017", title: "Docker System Absolute Beginner Center Course", time: "8:00 AM - 12:00 PM" },
-    { date: "30", month: "Aug, 2017", title: "Oracle Architecture Course Computer Ethernet Wiring", time: "8:00 AM - 12:00 PM" }
-  ];
-
-  const notices = [
-    { date: "22 July, 2017", title: "Online Master Practitioner Course And Certification Project" },
-    { date: "22 July, 2017", title: "The Complete Job, Interview & Network Resume Linkedin Profile" },
-    { date: "22 July, 2017", title: "Shamanic Initiation Spiritual Awakening Training & Certification" }
-  ];
-
-  const news = [
-    { img: "https://via.placeholder.com/50", date: "22 July, 2017", title: "Master Practitioner Course And Certification Project" },
-    { img: "https://via.placeholder.com/50", date: "22 July, 2017", title: "The Complete Job, Interview, Resume/Linkedin & Network" },
-    { img: "https://via.placeholder.com/50", date: "22 July, 2017", title: "Shamanic Initiation Spiritual Awakening Certification" }
+const Insights = () => {
+  const cards = [
+    {
+      img: "../asset/image/99.jpeg",
+      tag: "Insight",
+      title: "Conversational BI – The Future Jarvis of the Business World",
+      customClass: "align-top-card",
+    },
+    {
+      img: "../asset/image/100.jpeg",
+      tag: "Insight",
+      title: "Future of Conversational AI – 5 key trends to watch in",
+      customClass: "align-bottom-card",
+    },
+    {
+      img: "../asset/image/97.png",
+      tag: "Insight",
+      title: "Conversational BI – The Future Jarvis of the Business World",
+      customClass: "align-top-card",
+    },
+    {
+      img: "../asset/image/98.png",
+      tag: "Insight",
+      title: "Future of Conversational AI – 5 key trends to watch in",
+      customClass: "align-bottom-card",
+    },
   ];
 
   return (
-    <Container className="py-4">
-      <Row>
-        {/* Seminar */}
-        <Col xs={12} sm={12} md={4} className="mb-4">
-          <h5 className="fw-bold section-title">Seminar</h5>
-          {events.map((e, idx) => (
-            <div key={idx} className="d-flex align-items-start border-bottom py-3">
-              <div className="text-center px-2 date-box">
-                <div className="bg-light border rounded p-2">
-                  <h4 className="m-0 text-primary">{e.date}</h4>
-                  <small>{e.month}</small>
-                </div>
-              </div>
-              <div className="flex-grow-1">
-                <p className="mb-1 fw-semibold">{e.title}</p>
-                <small className="text-muted"><FaRegClock /> {e.time}</small>
-              </div>
-            </div>
-          ))}
-        </Col>
-
-        {/* Projects */}
-        <Col xs={12} sm={12} md={4} className="mb-4">
-          <h5 className="fw-bold section-title">Projects</h5>
-          {notices.map((n, idx) => (
-            <div key={idx} className="border-bottom py-3">
-              <small className="text-muted"><FaRegClock /> {n.date}</small>
-              <p className="mb-0 fw-semibold">{n.title}</p>
-            </div>
-          ))}
-        </Col>
-
-        {/* Course */}
-        <Col xs={12} sm={12} md={4} className="mb-4">
-          <h5 className="fw-bold section-title">Course</h5>
-          {news.map((n, idx) => (
-            <div key={idx} className="d-flex align-items-center border-bottom py-3">
-              <img src={n.img} alt="news" className="rounded me-3 news-img" />
-              <div>
-                <p className="mb-1 fw-semibold">{n.title}</p>
-                <small className="text-muted"><FaRegClock /> {n.date}</small>
+    <div className="container mt-5">
+      <Row className="g-4">
+        {cards.map((card, index) => (
+          <Col xs={12} sm={6} md={6} lg={6} key={index}>
+            <div className={card.customClass}>
+              <motion.div
+                whileHover={{
+                  scale: 1.05,
+                  rotateX: 5,
+                  boxShadow: "0 15px 30px rgba(0,0,0,0.2)",
+                }}
+                whileTap={{
+                  scale: 0.97,
+                  rotateX: 0,
+                  boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 250,
+                  damping: 15,
+                }}
+                style={{ borderRadius: "12px", overflow: "hidden" }}
+              >
+                <Card className="shadow-sm border-0 h-100">
+                  <Card.Img
+                    variant="top"
+                    src={card.img}
+                    style={{ objectFit: "cover", height: "auto", maxHeight: "250px" }}
+                  />
+                </Card>
+              </motion.div>
+              <div className="card-text-content">
+                <small className="text-muted">{card.tag}</small>
+                <Card.Title className="mt-2">{card.title}</Card.Title>
               </div>
             </div>
-          ))}
-        </Col>
+          </Col>
+        ))}
       </Row>
-    </Container>
+    </div>
   );
 };
 
-export default DashboardSection;
+export default Insights;

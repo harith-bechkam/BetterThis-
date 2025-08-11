@@ -1,16 +1,57 @@
-.insight-card {
-  border: none;
-  border-radius: 16px;
-  overflow: hidden;
+.align-top-card {
+  margin-top: 0;
 }
 
-.insight-img-wrapper img {
+.align-bottom-card {
+  margin-top: 15%; /* desktop default */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .align-bottom-card {
+    margin-top: 0; /* mobile view - same level */
+  }
+}
+
+.card {
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  will-change: transform, box-shadow;
+}
+
+.card img {
   width: 100%;
   height: auto;
-  display: block;
+  border-bottom: 1px solid #f0f0f0;
 }
 
-/* Push down the right card image */
-.offset-card .insight-img-wrapper {
-  margin-top: 50px; /* adjust this for alignment */
+/* Hover */
+.card:hover {
+  transform: translateY(-6px) scale(1.02) rotateX(2deg);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Click Pulse Animation */
+.card.clicked {
+  animation: clickPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes clickPop {
+  0% {
+    transform: scale(1) rotateX(0deg);
+  }
+  40% {
+    transform: scale(1.07) rotateX(3deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.18);
+  }
+  100% {
+    transform: scale(1) rotateX(0deg);
+  }
+}
+
+/* Text styling */
+.card-text-content {
+  padding: 10px 0;
 }
