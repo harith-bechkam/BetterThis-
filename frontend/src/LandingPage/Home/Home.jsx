@@ -59,11 +59,13 @@ const Home = () => {
       image: HomeImage,
       options: op1,
       render: () => (
-        <div
-          className="expdf"
-        >
-          <h1>Experience The Digital Transformation</h1>
-          <span>A new place for consumer engagement with immersive experiences while building community</span>
+        <div className="expdf">
+          <h1>
+            Experience The <span className="gradient-text">Digital Transformation</span>
+          </h1>
+          <span>
+            A new place for consumer engagement with immersive experiences while building community
+          </span>
           <p onClick={() => navigate('/about')}>Let's Traverse</p>
         </div>
       ),
@@ -72,31 +74,34 @@ const Home = () => {
       image: HomeImage,
       options: op1,
       render: () => (
-        <>
-          <div
-            className="expdf"
-          >
-            <h1>Outcome-based Innovation</h1>
-            <span>Transform business with client-centered intelligent cloud solutions delivering intelligence, visiblity and smart technology</span>
-            <p onClick={() => navigate('/about')}>Let's Traverse</p>
-          </div>
-        </>
+        <div className="expdf">
+          <h1>
+            Outcome-based <span className="gradient-text">Innovation</span>
+          </h1>
+          <span>
+            Transform business with client-centered intelligent cloud solutions delivering intelligence, visibility and smart technology
+          </span>
+          <p onClick={() => navigate('/about')}>Let's Traverse</p>
+        </div>
       ),
     },
     {
       image: HomeImage,
       options: op1,
       render: () => (
-        <div
-          className="expdf"
-        >
-          <h1>Intuitive Intelligence Re-engineered</h1>
-          <span>Operate with human insight, but at exceptional speed with the power to anticipate and act instantaneously</span>
+        <div className="expdf">
+          <h1>
+            Intuitive Intelligence <span className="gradient-text">Re-engineered</span>
+          </h1>
+          <span>
+            Operate with human insight, but at exceptional speed with the power to anticipate and act instantaneously
+          </span>
           <p onClick={() => navigate('/about')}>Let's Traverse</p>
         </div>
       ),
     },
   ];
+  
 
   return (
     <>
@@ -119,7 +124,7 @@ const Home = () => {
         >
           {slides.map((slide, i) => (
             <SwiperSlide key={i}>
-              <div style={{ position: "relative", height: "67rem", overflow: "hidden" }}>
+              <div style={{ position: "relative", height: "50rem", overflow: "hidden" }}>
                 <div style={{ pointerEvents: 'none', position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 1 }}>
                   <Particle options={slide.options} rekey={i} />
                 </div>

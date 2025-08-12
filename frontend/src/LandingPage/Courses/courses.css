@@ -1,3 +1,7 @@
+.course-section{
+  padding: 6rem 0px !important;
+}
+
 .check{
 width: 353px;
 height: 390px;
@@ -101,6 +105,24 @@ gap: 42px;
   flex: 0 0 auto;
   width: 260px;
 }
+
+
+.gradient-btn {
+  background: linear-gradient(90deg, #ff00ff, #8000ff);
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.gradient-btn:hover {
+  transform: scale(1.05);
+}
+
 /* Hide navigation buttons on mobile */
 @media (max-width: 768px) {
   .course-scroll-buttons {

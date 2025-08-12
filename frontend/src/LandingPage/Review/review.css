@@ -42,6 +42,7 @@
 .rut h2,
 .rutConnect h2 {
     font-weight: bold;
+    font-size: 3rem;
 }
 
 .rut .Inventive,
@@ -52,6 +53,7 @@
 .rut h3 {
     font-weight: 900;
     color: #f39c12;
+    font-size: 2.5rem;
 }
 
 .rut h5,
@@ -84,6 +86,81 @@
 .join-btn:hover {
     background: linear-gradient(to right, #e950e5, #b44fe4);
 }
+
+/* === ANIMATION EFFECTS === */
+
+/* Fade + Slide Up */
+@keyframes fadeSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-slide {
+    opacity: 0;
+    animation: fadeSlideUp 0.8s ease-out forwards;
+  }
+  
+  /* Image Hover Zoom */
+  .image-row img {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .image-row img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+  
+  /* Overlay Text Animation */
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .overlay-text {
+    animation: fadeInDown 1s ease-out forwards;
+  }
+  .overlay-span-text {
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.4s;
+  }
+  
+  /* Divider bounce in */
+  @keyframes scaleIn {
+    0% {
+      transform: scaleX(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+  }
+  .divider {
+    transform-origin: center;
+    animation: scaleIn 0.7s ease-out forwards;
+  }
+  
 
 
 @media (max-width: 819px) and (min-width: 520px) {

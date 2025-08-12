@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Container, Card, Button ,Col,Row} from "react-bootstrap";
+import { Container, Card, Button, Col, Row } from "react-bootstrap";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "./courses.css";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +15,7 @@ const courses = [
 
 const Courses = () => {
   const scrollRef = useRef();
- const navigate = useNavigate();
+  const navigate = useNavigate();
   const scroll = (direction) => {
     if (!scrollRef.current) return;
     const cardWidth = scrollRef.current.firstChild.offsetWidth + 20; // card width + gap
@@ -28,57 +28,57 @@ const Courses = () => {
   return (
     <section className="py-5">
       <Container>
-       < div>
-         <Row className="align-items-center">
-        {/* Left Section */}
-       <Col xs={12} md={8}>
-  <h2 className="fw-bold">Courses We Offer</h2>
-  <p className="text-muted" style={{ maxWidth: "600px" }}>
-    Explore our range of expertly designed courses that combine practical skills 
-    with industry knowledge—helping you advance your career, grow your business, 
-    and stay ahead in today’s competitive world.
-  </p>
-</Col>
+        < div className="course-section">
+          <Row className="align-items-center">
+            {/* Left Section */}
+            <Col xs={12} md={8}>
+              <h2 className="fw-bold">Courses We Offer</h2>
+              <p className="text-muted" style={{ maxWidth: "600px" }}>
+                Explore our range of expertly designed courses that combine practical skills
+                with industry knowledge—helping you advance your career, grow your business,
+                and stay ahead in today’s competitive world.
+              </p>
+            </Col>
 
-        {/* Right Section - Navigation Buttons */}
-       <Col
-  xs={12}
-  md={4}
-  className="d-flex justify-content-md-end justify-content-start mt-3 mt-md-0 course-scroll-buttons"
->
-  <div className="d-flex gap-3">
-    <Button
-      variant="light"
-      className="rounded-circle p-2"
-      onClick={() => scroll("left")}
-      style={{
-        width: "40px",
-        height: "40px",
-        backgroundColor: "#d9d9d9",
-        border: "none",
-      }}
-    >
-      <FaChevronLeft />
-    </Button>
-    <Button
-      variant="light"
-      className="rounded-circle p-2"
-      onClick={() => scroll("right")}
-      style={{
-        width: "40px",
-        height: "40px",
-        backgroundColor: "#d9d9d9",
-        border: "none",
-      }}
-    >
-      <FaChevronRight />
-    </Button>
-  </div>
-</Col>
+            {/* Right Section - Navigation Buttons */}
+            <Col
+              xs={12}
+              md={4}
+              className="d-flex justify-content-md-end justify-content-start mt-3 mt-md-0 course-scroll-buttons"
+            >
+              <div className="d-flex gap-3">
+                <Button
+                  variant="light"
+                  className="rounded-circle p-2"
+                  onClick={() => scroll("left")}
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    backgroundColor: "#d9d9d9",
+                    border: "none",
+                  }}
+                >
+                  <FaChevronLeft />
+                </Button>
+                <Button
+                  variant="light"
+                  className="rounded-circle p-2"
+                  onClick={() => scroll("right")}
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    backgroundColor: "#d9d9d9",
+                    border: "none",
+                  }}
+                >
+                  <FaChevronRight />
+                </Button>
+              </div>
+            </Col>
 
-      </Row>
-      
-   </div>
+          </Row>
+
+        </div>
         {/* Slider Container */}
         <div
           className="course-slider"
@@ -89,17 +89,17 @@ const Courses = () => {
               <Card.Img
                 variant="top"
                 src={course.img}
-                 style={{
-     display: "flex",
-  gap: "20px",
- 
-  height: "240px",
-  objectFit: "cover",
-  padding: "5%",
-  borderRadius: "13%",
-  position: "relative",
-  
-}}
+                style={{
+                  display: "flex",
+                  gap: "20px",
+
+                  height: "240px",
+                  objectFit: "cover",
+                  padding: "5%",
+                  borderRadius: "13%",
+                  position: "relative",
+
+                }}
 
               />
               <Card.Body>
@@ -115,14 +115,14 @@ const Courses = () => {
         </div>
 
         <div className="text-center mt-4">
-          <Button
-            variant="dark"
-            className="px-4 py-2 rounded-3"
-            onClick={() => navigate("/courselist")} // ✅ Navigate on click
+          <button
+            className="gradient-btn"
+            onClick={() => navigate("/courselist")}
           >
             View All <i className="fa-solid fa-arrow-right ms-2"></i>
-          </Button>
+          </button>
         </div>
+
       </Container>
     </section>
   );

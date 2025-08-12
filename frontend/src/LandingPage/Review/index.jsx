@@ -1,7 +1,30 @@
+import React, { useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import './review.css';
 
+
+
+
 const Index = () => {
+
+
+    useEffect(() => {
+        const elements = document.querySelectorAll('.animate-fade-slide');
+        const observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = `${Math.random() * 0.5}s`;
+                        entry.target.classList.add('in-view');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+        elements.forEach(el => observer.observe(el));
+    }, []);
+    
     const navigate = useNavigate()
 
     const images = [
@@ -37,9 +60,9 @@ const Index = () => {
         <section className="review">
             <div className="upper">
                 <div className="rut">
-                    <h2>Smart. Motivated</h2>
-                    <h2 className="Inventive">Inventive</h2>
-                    <h3 className='career'>Build A Career With BetterThis</h3>
+                    <h2 className="animate-fade-slide">Smart. Motivated</h2>
+                    <h2 className="Inventive animate-fade-slide">Inventive</h2>
+                    <h3 className='career animate-fade-slide'>Build A Career With BetterThis</h3>
                 </div>
 
                 <div>
@@ -48,7 +71,7 @@ const Index = () => {
 
                 <div className="rutConnect">
                     <h2>Connect With Us</h2>
-                    <h2 className="Inventive">+1 (800) 123-4567</h2>
+                    <h2 className="Inventive">+91 6380319582</h2>
                     <h5>info@betterthis.com</h5>
                 </div>
             </div>

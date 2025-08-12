@@ -22,7 +22,7 @@ const Particle = ({ options, rekey }) => {
       options={options}
       style={{
         position: "absolute",
-        top: 0,
+        top: 50,
         left: 0,
         width: "100%",
         height: "100%",

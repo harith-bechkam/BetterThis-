@@ -7,7 +7,10 @@
   }
 
   * {
-    font-family: "MuseoModerno", serif !important;
+    /* font-family: "MuseoModerno", serif !important; */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+             Roboto, "Helvetica Neue", Arial, sans-serif;
+    /* font-family: "PT Serif", serif; */
     box-sizing: border-box;
     margin: 0;
     padding: 0;
