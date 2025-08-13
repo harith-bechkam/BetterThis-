@@ -10,22 +10,30 @@ const Beforeafter = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
+          // Restart animation every time
           setIsAnimating(true);
-          setSliderPos(50); // Animate to center
+          setSliderPos(0); // Start from left
+          setTimeout(() => {
+            setSliderPos(50); // Move to center
+          }, 50);
+
           setTimeout(() => {
             setIsAnimating(false);
-          }, 1500);
-          observer.disconnect(); // Only trigger once
+          }, 1600);
         }
       },
-      { threshold: 0.4 } // Trigger when 40% of section is visible
+      { threshold: 0.4 }
     );
 
     if (containerRef.current) {
       observer.observe(containerRef.current);
     }
 
-    return () => observer.disconnect();
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
   }, []);
 
   const handleMove = (clientX) => {
@@ -59,10 +67,10 @@ const Beforeafter = () => {
         <br /> Honestly. We'll show you.
       </h2>
       <p className="subtitle">
-  We help businesses transform ideas into impactful solutions.  
-  From strategy to execution, our process delivers measurable results  
-  that set you apart from the competition.
-</p>
+        We help businesses transform ideas into impactful solutions.
+        From strategy to execution, our process delivers measurable results
+        that set you apart from the competition.
+      </p>
 
       <div className="comparison-container">
         <img src="../asset/image/before1.png" alt="Before" className="before-image" />

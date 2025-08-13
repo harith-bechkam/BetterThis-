@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import { FaProjectDiagram, FaUsers, FaHandshake } from "react-icons/fa";
 import { useNavigate } from "react-router-dom"; // ✅ Import for navigation
+import { motion } from "framer-motion"; // ✅ For mobile image animation
 import "./services.css";
 
 const sections = [
@@ -10,31 +10,31 @@ const sections = [
     title: "Product Engineering",
     description:
       "Our team of adept engineers merge creativity, proficiency, and state-of-the-art tools to metamorphose your concepts into market-ready products. We cover the entire product lifecycle, including research, UX/UI design, prototyping, development, rigorous testing, and post-launch support—ensuring your solution is innovative, scalable, and built for long-term success.",
-    image: "../asset/image/91.png"
+    image: "../asset/image/91.png",
   },
   {
     label: "SERVICE",
     title: "AI & Machine Learning",
     description:
       "We leverage cutting-edge AI and Machine Learning to fortify C-suite decisions, uncover hidden opportunities, and automate complex processes. Our expertise spans predictive analytics, computer vision, natural language processing, and intelligent recommendation systems—enabling businesses to transform data into actionable insights and gain a competitive edge.",
-    image: "../asset/image/92.png"
+    image: "../asset/image/92.png",
   },
   {
     label: "SERVICE",
     title: "Cloud Services",
     description:
       "We specialize in integrating cloud strategies with business goals for organizations embracing digital transformation. From cloud migration and architecture design to cost optimization, security hardening, and ongoing management, our solutions empower businesses with agility, scalability, and resilience—ensuring your operations run seamlessly in a secure, future-ready environment.",
-    image: "../asset/image/93.png"
+    image: "../asset/image/93.png",
   },
 ];
-
 
 const WhatWeDoBest = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [fade, setFade] = useState(true);
   const sectionRefs = useRef([]);
-  const navigate = useNavigate(); // ✅ initialize navigation
+  const navigate = useNavigate();
 
+  // Scroll logic for desktop sticky image
   useEffect(() => {
     const handleScroll = () => {
       sectionRefs.current.forEach((ref, index) => {
@@ -59,16 +59,15 @@ const WhatWeDoBest = () => {
 
   return (
     <>
-
       <Container fluid className="what-we-do-section">
         <Row>
-          {/* Left Sticky Image */}
-          <Col md={6} className="sticky-image-column">
+          {/* Left Sticky Image (Desktop) */}
+          <Col md={6} className="sticky-image-column d-none d-md-block">
             <div className="sticky-image">
               <img
                 src={sections[activeIndex].image}
                 alt={sections[activeIndex].title}
-                style={{ opacity: fade ? 1 : 0 }}
+                style={{ opacity: fade ? 1 : 0, transition: "opacity 0.3s" }}
               />
             </div>
           </Col>
@@ -81,10 +80,16 @@ const WhatWeDoBest = () => {
                 className="content-block"
                 ref={(el) => (sectionRefs.current[index] = el)}
               >
-                {/* Mobile image above content */}
-                <div className="mobile-image d-md-none">
-                  <img src={sec.image} alt={sec.title} />
-                </div>
+                {/* Mobile image with animation */}
+               <motion.div
+  className="mobile-image d-md-none"
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ amount: 0.5 }} // removed once:true
+  transition={{ duration: 0.6 }}
+>
+  <img src={sec.image} alt={sec.title} />
+</motion.div>
 
                 <p className="service-label">{sec.label}</p>
                 <h2>{sec.title}</h2>
@@ -108,7 +113,6 @@ const WhatWeDoBest = () => {
           VIEW ALL SERVICES
         </Button>
       </div>
-
     </>
   );
 };

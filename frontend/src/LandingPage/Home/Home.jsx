@@ -1,107 +1,46 @@
-import { useEffect, useRef, useState } from "react"
-import Navbar from "./Navbar"
-import "./home.css"
-import HomeImage from "./assets/alterbanner.png"
-import { Swiper, SwiperSlide, } from "swiper/react";
-import { Pagination, Autoplay, EffectFade } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/effect-fade";
-import Particle from "./Particle";
-import { AnimatePresence, motion } from "framer-motion";
-import { op1, op2, globeOptions } from './options'
-import Bar from "./Bar"
+import { useEffect, useRef, useState } from "react";
+import Navbar from "./Navbar";
+import "./home.css";
+import { motion } from "framer-motion";
+import Bar from "./Bar";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-
-  const navigate = useNavigate()
-  const heroRef = useRef(null)
-  const menuRef = useRef(null)
-  const [showNavbar, setShowNavbar] = useState(false)
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [activeSlide, setActiveSlide] = useState(0);
+  const navigate = useNavigate();
+  const heroRef = useRef(null);
+  const menuRef = useRef(null);
+  const [showNavbar, setShowNavbar] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
-      setShowNavbar(!entry.isIntersecting)
-    }, { threshold: 0.5 })
+      setShowNavbar(!entry.isIntersecting);
+    }, { threshold: 0.5 });
 
-    if (heroRef.current) observer.observe(heroRef.current)
+    if (heroRef.current) observer.observe(heroRef.current);
     return () => {
-      if (heroRef.current) observer.unobserve(heroRef.current)
-    }
-  }, [])
+      if (heroRef.current) observer.unobserve(heroRef.current);
+    };
+  }, []);
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768)
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     function handleClickOutside(event) {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setMenuOpen(false)
+        setMenuOpen(false);
       }
     }
     if (menuOpen) {
-      document.addEventListener("mousedown", handleClickOutside)
+      document.addEventListener("mousedown", handleClickOutside);
     }
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [menuOpen])
-
-  const slides = [
-    {
-      image: HomeImage,
-      options: op1,
-      render: () => (
-        <div className="expdf">
-          <h1>
-            Experience The <span className="gradient-text">Digital Transformation</span>
-          </h1>
-          <span>
-            A new place for consumer engagement with immersive experiences while building community
-          </span>
-          <p onClick={() => navigate('/about')}>Let's Traverse</p>
-        </div>
-      ),
-    },
-    {
-      image: HomeImage,
-      options: op1,
-      render: () => (
-        <div className="expdf">
-          <h1>
-            Outcome-based <span className="gradient-text">Innovation</span>
-          </h1>
-          <span>
-            Transform business with client-centered intelligent cloud solutions delivering intelligence, visibility and smart technology
-          </span>
-          <p onClick={() => navigate('/about')}>Let's Traverse</p>
-        </div>
-      ),
-    },
-    {
-      image: HomeImage,
-      options: op1,
-      render: () => (
-        <div className="expdf">
-          <h1>
-            Intuitive Intelligence <span className="gradient-text">Re-engineered</span>
-          </h1>
-          <span>
-            Operate with human insight, but at exceptional speed with the power to anticipate and act instantaneously
-          </span>
-          <p onClick={() => navigate('/about')}>Let's Traverse</p>
-        </div>
-      ),
-    },
-  ];
-  
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [menuOpen]);
 
   return (
     <>
@@ -109,50 +48,52 @@ const Home = () => {
         <Navbar isMobile={isMobile} showNavbar={showNavbar} />
       </div>
 
-      <section ref={heroRef} >
-        <Swiper
-          modules={[Pagination, Autoplay, EffectFade]}
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 15000 }}
-          loop
-          effect="fade"
-          fadeEffect={{ crossFade: false }}
-          className="mySwiper"
-          onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
-          allowTouchMove={false}
-          keyboard={{ enabled: true }}  // disable keyboard nav
-        >
-          {slides.map((slide, i) => (
-            <SwiperSlide key={i}>
-              <div style={{ position: "relative", height: "50rem", overflow: "hidden" }}>
-                <div style={{ pointerEvents: 'none', position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 1 }}>
-                  <Particle options={slide.options} rekey={i} />
-                </div>
+      <section ref={heroRef}>
+        <div className="video-container">
+          {/* Video Background */}
+          <video
+            src="../asset/image/110.mp4" // uploaded video
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
 
-                <div className="header" style={{ position: "absolute", top: "30px", left: 0, right: 0, zIndex: 10 }}>
-                  <Bar logoText="BetterThis" menuRef={menuRef} isMobile={isMobile} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-                </div>
+          {/* Color Overlay */}
+          <div className="video-overlay" />
 
-                <div style={{ position: "relative", zIndex: 2 }}>
-                  <motion.div
-                    key={activeSlide}
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -40 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                  >
-                    {slide.render()}
-                  </motion.div>
-                </div>
-              </div>
+          {/* Navbar / Bar */}
+          <div className="header" style={{ position: "absolute", top: "30px", left: 0, right: 0, zIndex: 10 }}>
+            <Bar
+              logoText="BetterThis"
+              menuRef={menuRef}
+              isMobile={isMobile}
+              menuOpen={menuOpen}
+              setMenuOpen={setMenuOpen}
+            />
+          </div>
 
-            </SwiperSlide>
-          ))}
-        </Swiper>
+          {/* Slide Content */}
+          <div style={{ position: "relative", zIndex: 20 }}>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="expdf"
+            >
+              <h1>
+                Experience The <span className="gradient-text">Digital Transformation</span>
+              </h1>
+              <span>
+                A new place for consumer engagement with immersive experiences while building community
+              </span>
+              <p onClick={() => navigate("/about")}>Let's Traverse</p>
+            </motion.div>
+          </div>
+        </div>
       </section>
-
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

@@ -41,26 +41,18 @@ const Insights = () => {
               <motion.div
                 whileHover={{
                   scale: 1.05,
-                  rotateX: 5,
-                  boxShadow: "0 15px 30px rgba(0,0,0,0.2)",
+                  y: -6,
+                  boxShadow: "0px 12px 30px rgba(0, 0, 0, 0.2)",
                 }}
-                whileTap={{
-                  scale: 0.97,
-                  rotateX: 0,
-                  boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 250,
-                  damping: 15,
-                }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
                 style={{ borderRadius: "12px", overflow: "hidden" }}
               >
                 <Card className="shadow-sm border-0 h-100">
                   <Card.Img
                     variant="top"
                     src={card.img}
-                    style={{ objectFit: "cover", height: "auto", maxHeight: "250px" }}
+                    className="fixed-size-image"
                   />
                 </Card>
               </motion.div>
