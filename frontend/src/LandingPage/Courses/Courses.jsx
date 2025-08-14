@@ -33,9 +33,10 @@ const Courses = () => {
         {/* Header */}
         <Row className="align-items-center mb-4">
           <Col xs={12} md={8}>
-            <h2 className="fw-bold">Top Destinations</h2>
+            <h2 className="fw-bold">Courses We Offer</h2>
             <p className="text-muted" style={{ maxWidth: "600px" }}>
-              Explore our curated destinations around the world.
+              Explore our expertly crafted courses designed to boost your skills and career.
+Learn from industry professionals with real-world experience
             </p>
           </Col>
           <Col

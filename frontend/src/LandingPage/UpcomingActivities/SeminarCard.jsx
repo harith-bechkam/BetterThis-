@@ -7,25 +7,25 @@ import "./SeminarCard.css";
 const Insights = () => {
   const cards = [
     {
-      img: "../asset/image/99.jpeg",
+      img: "../asset/image/collage1.png",
       tag: "Insight",
       title: "Conversational BI – The Future Jarvis of the Business World",
       customClass: "align-top-card",
     },
     {
-      img: "../asset/image/100.jpeg",
+      img: "../asset/image/collage2.jpg",
       tag: "Insight",
       title: "Future of Conversational AI – 5 key trends to watch in",
       customClass: "align-bottom-card",
     },
     {
-      img: "../asset/image/97.png",
+      img: "../asset/image/collage3.jpg",
       tag: "Insight",
       title: "Conversational BI – The Future Jarvis of the Business World",
       customClass: "align-top-card",
     },
     {
-      img: "../asset/image/98.png",
+      img: "../asset/image/collage.jpeg",
       tag: "Insight",
       title: "Future of Conversational AI – 5 key trends to watch in",
       customClass: "align-bottom-card",
