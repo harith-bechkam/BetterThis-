@@ -51,13 +51,17 @@ const Home = () => {
       <section ref={heroRef}>
         <div className="video-container">
           {/* Video Background */}
-          <video
-            src="../asset/image/110.mp4" // uploaded video
-            autoPlay
-            muted
-            loop
-            playsInline
-          />
+         <video
+  src="../asset/image/110.mp4"
+  autoPlay
+  muted
+  loop
+  playsInline
+  webkit-playsinline="true"
+  playsinline="true"
+  preload="auto"
+/>
+
 
           {/* Color Overlay */}
           <div className="video-overlay" />
