@@ -5,27 +5,31 @@ import { useNavigate } from "react-router-dom"; // ✅ Import for navigation
 import "./services.css";
 
 const sections = [
+
   {
     label: "SERVICE",
-    title: "Product Engineering",
+    title: "Web Application",
     description:
-      "Our team of adept engineers merge creativity, proficiency, and state-of-the-art tools to metamorphose your concepts into market-ready products. We cover the entire product lifecycle, including research, UX/UI design, prototyping, development, rigorous testing, and post-launch support—ensuring your solution is innovative, scalable, and built for long-term success.",
-    image: "../asset/image/91.png"
+      "Design and develop scalable, high-performance web solutions tailored to streamline operations, boost client engagement, and grow your business.",
+    image: "../asset/image/webdesign.jpg",
+    overlayText: "Add feedback",
+  },
+  {
+    label: "SERVICE",
+    title: "Mobile Application",
+    description:
+      "Build intuitive mobile apps that enhance customer experience, improve brand visibility, and drive business growth across platforms.",
+    image: "../asset/image/mbb01.jpg",
+    overlayText: "Reporting",
   },
   {
     label: "SERVICE",
     title: "AI & Machine Learning",
     description:
       "We leverage cutting-edge AI and Machine Learning to fortify C-suite decisions, uncover hidden opportunities, and automate complex processes. Our expertise spans predictive analytics, computer vision, natural language processing, and intelligent recommendation systems—enabling businesses to transform data into actionable insights and gain a competitive edge.",
-    image: "../asset/image/92.png"
+    image: "../asset/image/AI01.jpg"
   },
-  {
-    label: "SERVICE",
-    title: "Cloud Services",
-    description:
-      "We specialize in integrating cloud strategies with business goals for organizations embracing digital transformation. From cloud migration and architecture design to cost optimization, security hardening, and ongoing management, our solutions empower businesses with agility, scalability, and resilience—ensuring your operations run seamlessly in a secure, future-ready environment.",
-    image: "../asset/image/93.png"
-  },
+  
 ];
 
 

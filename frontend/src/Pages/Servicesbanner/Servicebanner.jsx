@@ -18,14 +18,14 @@ const sections = [
     title: "AI & Machine Learning",
     description:
       "Innovatively leverages cutting-edge AI & Machine Learning to fortify C-suite decisions and automate insights.",
-    image: "../asset/image/92.png",
+    image: "../asset/image/AI01.jpg",
   },
   {
     label: "SERVICE",
     title: "Cloud Services",
     description:
       "We specialize in integrating cloud strategies with business goals for organizations embracing digital transformation.",
-    image: "../asset/image/93.png",
+    image: "../asset/image/CL03.jpeg",
   },
   {
     title: "Web Application",
@@ -38,7 +38,7 @@ const sections = [
     title: "Mobile Application",
     description:
       "Build intuitive mobile apps that enhance customer experience, improve brand visibility, and drive business growth across platforms.",
-    image: "../asset/image/mobileapp.jpg",
+    image: "../asset/image/mbb01.jpg",
     overlayText: "Reporting",
   },
   {
@@ -66,7 +66,7 @@ const sections = [
     title: "IOT",
     description:
       "Leverage IoT technologies to connect devices, collect actionable data, and drive smarter, data-backed business strategies.",
-    image: "../asset/image/iot.jpg",
+    image: "../asset/image/IOT1.jpg",
     overlayText: "Tagged updates",
   },
   {

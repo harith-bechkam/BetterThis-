@@ -17,6 +17,7 @@
 
 .content-block h2{
   font-size: 2.5rem !important;
+  /* color: #f2b94e; */
 }
 
 .content-block p {
@@ -35,12 +36,17 @@
 }
 
 .sticky-image img {
-  max-width: 100% !important;
+  max-width: 80% !important;
   height: 80% !important;
   border-radius: 10px;
   transition: opacity 0.5s ease-in-out, transform 0.4s ease-in-out;
 }
+/* .read-more-btn{
+  background: linear-gradient(90deg, #ff00ff, #8000ff); 
+  color: white;
+  font-weight: 600;
 
+} */
 .view-all-btn {
   background: linear-gradient(90deg, #ff00ff, #8000ff); /* Pink → Violet */
   color: white;
@@ -51,6 +57,7 @@
   font-size: 16px;
   text-transform: uppercase;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
 }
 
 .view-all-btn:hover {
