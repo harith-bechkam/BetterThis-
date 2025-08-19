@@ -1,146 +1,155 @@
-.course-section{
-  padding: 6rem 0px !important;
-}
-
-.check{
-width: 353px;
-height: 390px;
-
-
-opacity: 1;
-border-radius: 24px;
-border-width: 3px;
-background-color: #FFFFFF;
-border: 3px solid #333333
-
-
-}
-.custom-row{
-gap: 42px;
-}
-.courses-section {
-  padding: 20px 0;
-}
-
-.header-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.title {
-  font-weight: 700;
-  font-size: 28px;
-}
-
-.subtitle {
-  color: #555;
-  max-width: 500px;
-}
-
-.card-wrapper {
-  padding: 10px;
-}
-
-.card {
-  background: #fff;
-  /* border: 3px solid #333; */
-  border-radius: 24px;
-  overflow: hidden;
-  text-align: left;
-  padding-bottom: 10px;
-}
-
-.card-img {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
-  border-radius: 13% 13% 0 0;
-}
-
-
-
-.rating {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin-left: 15px;
-  font-size: 14px;
-}
-
-.arrow-btn {
-  background: #ddd;
-  border: none;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.arrow-btn:hover {
-  background: #ccc;
-}
+/* courses.css */
 .course-slider {
   display: flex;
   gap: 20px;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  scrollbar-width: thin;
-  scrollbar-color: #888 transparent;
 }
 
-.course-slider::-webkit-scrollbar {
-  height: 8px;
-}
-
-.course-slider::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 4px;
-}
-
-.course-card {
+.destination-card {
   flex: 0 0 auto;
-  width: 260px;
+  width: 280px;
 }
 
+.destination-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  height: 300px;
+}
 
-.gradient-btn {
-  background: linear-gradient(90deg, #ff00ff, #8000ff);
+.destination-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.destination-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
   color: white;
+  text-align: center;
+}
+
+.destination-hover h5 {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.destination-hover .know-more {
   font-weight: 600;
-  border: none;
-  padding: 12px 28px;
-  border-radius: 12px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
+  color: #1e90ff;
 }
 
-.gradient-btn:hover {
-  transform: scale(1.05);
+.destination-info {
+  text-align: center;
+  padding: 12px 0;
+  background: white;
 }
 
-/* Hide navigation buttons on mobile */
+.destination-info h5 {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.destination-info .know-more {
+  font-weight: 600;
+  color: #1e90ff;
+  margin: 0;
+}
+
+.destination-card:hover img {
+  transform: scale(1.08);
+}
+
+.destination-card:hover .destination-hover {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.destination-card:hover .destination-info {
+  display: none;
+}
+
+/* Mobile adjustments */
 @media (max-width: 768px) {
   .course-scroll-buttons {
     display: none !important;
   }
-
-  /* Allow horizontal scroll on mobile */
   .course-slider {
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* smooth scroll for iOS */
-
-    /* Hide scrollbar but keep scroll functional */
-    scrollbar-width: none; /* Firefox */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
-
-  /* Hide scrollbar for Chrome, Safari, Edge */
   .course-slider::-webkit-scrollbar {
     display: none;
   }
 }
+.destination-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 30%, transparent 80%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 20px;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  color: white;
+  text-align: center;
+}
 
+.destination-card:hover img {
+  transform: scale(1.06);
+}
+
+.destination-card:hover .destination-hover {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.destination-card:hover .destination-info {
+  display: none;
+}
+
+/* View All Card Styling */
+.view-all-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  height: 300px;
+  flex: 0 0 auto;
+  width: 280px;
+}
+
+.view-all-card:hover {
+  background: #e9ecef;
+}
+
+.view-all-content span {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1e90ff;
+}

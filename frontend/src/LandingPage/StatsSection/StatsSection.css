@@ -1,4 +1,3 @@
-/* Stats layout */
 .stats-section {
   text-align: center;
   padding: 60px 20px;
@@ -44,8 +43,8 @@
 
 .logo-track {
   display: flex;
-  gap: 40px;
-  animation: scroll 20s linear infinite;
+  gap: 60px; /* increase gap for spacing */
+  animation: scroll 25s linear infinite; /* slower, smoother */
 }
 
 .logo-track img {
