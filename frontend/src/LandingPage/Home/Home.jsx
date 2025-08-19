@@ -85,12 +85,13 @@ const Home = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="expdf"
             >
-              <h1>
-                Experience The <span className="gradient-text">Digital Transformation</span>
-              </h1>
-              <span>
-                A new place for consumer engagement with immersive experiences while building community
-              </span>
+             <h1>
+  Powering the <span className="gradient-text">Future of Web, Mobile & AI</span>
+</h1>
+<span>
+  Delivering intelligent, seamless, and scalable digital solutions that drive growth and innovation.
+</span>
+
               <p onClick={() => navigate("/about")}>Let's Traverse</p>
             </motion.div>
           </div>
