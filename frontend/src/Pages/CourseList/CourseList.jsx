@@ -47,13 +47,54 @@ const profiles = [
     role: "Founder / Apple Inc",
     desc: "Steve Jobs co-founded Apple in 1976."
   },
+
   {
     img: "../asset/image/react.jpeg",
     title: "Web Development",
-    name: "Sundar Pichai",
-    role: "CEO / Google",
-    desc: "Sundar Pichai is CEO of Alphabet Inc. and Google."
-  }
+    name: "Html,Css,Js",
+  },
+  {
+    img: "../asset/image/react.jpeg",
+    title: "Web Development",
+    name: "React",
+  },{
+    img: "../asset/image/react.jpeg",
+    title: "Web Development",
+    name: "Angular",
+  },{
+    img: "../asset/image/react.jpeg",
+    title: "Web Development",
+    name: "Bootstrap / Tailwind CSS",
+  },{
+    img: "../asset/image/react.jpeg",
+    title: "Backend",
+    name: "Node.js",
+  },{
+    img: "../asset/image/react.jpeg",
+    title: "Backend",
+    name: "Express.js",
+  },{
+    img: "../asset/image/react.jpeg",
+    title: "Backend",
+    name: "NestJS",
+  },{
+    img: "../asset/image/react.jpeg",
+    title: "Backend",
+    name: "Django",
+  },
+  {
+    img: "../asset/image/react.jpeg",
+    title: "Backend",
+    name: "Flask",
+  },{
+    img: "../asset/image/react.jpeg",
+    title: "Backend",
+    name: "FastAPI",
+  },{
+    img: "../asset/image/react.jpeg",
+    title: "Backend",
+    name: "Spring Boot",
+  },
 ];
 
 const ProfileCard = () => {
@@ -161,30 +202,26 @@ const ProfileCard = () => {
         </div>
 
         {/* Profile Cards */}
-        <Container fluid className="profile-card-container py-4">
-          <Row className="g-4">
-            {filteredProfiles.length > 0 ? (
-              filteredProfiles.map((profile, idx) => (
-                <Col key={idx} xs={12} md={4}>
-                  <div className="profile-card">
-                    <Row className="g-0 align-items-center">
-                      <Col xs={12} sm={5} className="image-section">
-                        <img src={profile.img} alt={profile.name} className="profile-img" />
-                      </Col>
-                      <Col xs={12} sm={7} className="text-section">
-                        <h2 className="name">{profile.name}</h2>
-                        <p className="designation">{profile.role}</p>
-                        <p className="description">{profile.desc}</p>
-                      </Col>
-                    </Row>
-                  </div>
-                </Col>
-              ))
-            ) : (
-              <p className="text-light">No profiles found for this category.</p>
-            )}
-          </Row>
-        </Container>
+       {/* Profile Cards */}
+<Container fluid className="profile-card-container py-4">
+  <Row className="g-4 justify-content-center">
+    {filteredProfiles.length > 0 ? (
+      filteredProfiles.map((profile, idx) => (
+        <Col key={idx} xs={12} sm={6} md={4} lg={3}>
+          <div className="profile-card">
+    <img src={profile.img} alt={profile.name} className="profile-img" />
+    <h2 className="name">{profile.name}</h2>
+    
+  
+  </div>
+        </Col>
+      ))
+    ) : (
+      <p className="text-light">No profiles found for this category.</p>
+    )}
+  </Row>
+</Container>
+
         <Footer />
       </Framer>
     </>

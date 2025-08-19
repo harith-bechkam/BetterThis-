@@ -26,15 +26,15 @@
 .after-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  display: block;
+  /* object-fit: cover;
+  display: block; */
 }
 
 .after-image-wrapper {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
+  /* height: 100%; */
 }
 
 /* Divider line */
@@ -137,6 +137,19 @@
 .after-image {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* instead of cover */
-  background-color: black; /* optional, fills empty space */
+  
+}
+.before-image,
+.after-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* keeps proportions while filling container */
+  display: block;
+}
+.after-image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* ✅ ensure equal height */
 }
