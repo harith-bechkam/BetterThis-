@@ -14,7 +14,7 @@
 
 .fixed-navbar {
   position: fixed;
-  top: -80px;
+  /* top: 10px; */
   left: 0;
   width: 100%;
   transition: top 0.4s ease-in-out;
