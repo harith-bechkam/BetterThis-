@@ -9,7 +9,7 @@ import '../../LandingPage/Home/home.css'
 import Navbar from "../../LandingPage/Home/Navbar";
 import { useEffect, useRef, useState } from "react";
 import Bar from "../../LandingPage/Home/Bar";
-
+import { Container, Row, Col, Button } from "react-bootstrap";
 const Aboutall = () => {
   const heroRef = useRef(null)
   const menuRef = useRef(null)
@@ -62,78 +62,125 @@ const Aboutall = () => {
           <div ref={heroRef} className="header" style={{ position: "absolute", top: "30px", left: 0, right: 0, zIndex: 10 }}>
             <Bar logoText="BetterThis" menuRef={menuRef} isMobile={isMobile} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
           </div>
-          <div className="about-profile-sec">
-            <h2 className="about-text">About Us</h2>
-          </div>
+         <div className="about-section">
+        
+                <div ref={heroRef} className="header" style={{ position: "absolute", top: "30px", left: 0, right: 0, zIndex: 10 }}>
+                  <Bar logoText="BetterThis" menuRef={menuRef} isMobile={isMobile} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+                </div>
+        
+                {/* Top Banner */}
+                <div className="about-profile-sec8">
+                  <div className="hero">
+              <Container style={{ marginTop: '3%' }}>
+                <Row className="align-items-center">
+                   <Col md={4} className="text-center mt-4 mt-md-0">
+                    <img
+                      src="../asset/image/about1.png"
+                      alt="Student"
+                      className='heroImage'
+                    />
+                  </Col>
+                  <Col md={4} className="text-center text-md-start checkfinf">
+  <p className="subtitle">About BetterThis</p>
+  <h1 className="title">
+    <span className='blue'>BetterThis IT & Training</span><br />
+    Empowering Technology & Learning Together
+  </h1>
+  <div className="features mt-3">
+    <span>💻 Innovative IT Solutions</span>
+    <span>📚 Professional Training Courses</span>
+    <span>🚀 Career Growth & Skill Development</span>
+  </div>
+</Col>
+                  <Col md={4} className="text-center mt-4 mt-md-0">
+                    <img
+                      src="../asset/image/about3.png"
+                      alt="Student"
+                      className='heroImage1'
+                    />
+                  </Col>
+                </Row>
+              </Container>
+            </div>
+                </div>
+        
+        
+        
+        
+              </div>
 
           <Framer delay={0.1}>
             {/* Education Platform Section */}
             <div className="about-container">
-              {/* Left Image Side */}
-              <div className="about-image-wrapper">
-                <div className="main-image">
-                  <img src={mainImage} alt="Main" />
-                  <div className="best-courser-badge">
-                    <span className="icon">🏆</span>
-                    <div>
-                      <h4>Best Courser</h4>
-                      <p>Ease of learning</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="side-image">
-                  <img src={sideImage} alt="Side" />
-                </div>
-              </div>
+  {/* Left Image Side */}
+  <div className="about-image-wrapper">
+    <div className="main-image">
+      <img src={mainImage} alt="Main" />
+      <div className="best-courser-badge">
+        <span className="icon">🏆</span>
+        <div>
+          <h4>Trusted Partner</h4>
+          <p>IT Solutions & Training</p>
+        </div>
+      </div>
+    </div>
+    <div className="side-image">
+      <img src={sideImage} alt="Side" />
+    </div>
+  </div>
 
-              {/* Right Content */}
-              <div className="about-content">
-                <p className="section-label">About Us</p>
-                <h2>
-                  Transform Your Skills Through Our <br />
-                  Online Education Platform
-                </h2>
-                <p className="description">
-                  We provide accessible, high-quality online education designed to help you achieve your personal and professional goals. Through interactive courses, practical projects, and expert guidance, we make learning flexible, engaging, and effective—empowering you to gain skills that matter in today’s world.
-                </p>
+  {/* Right Content */}
+  <div className="about-content">
+    <p className="section-label">About Us</p>
+    <h2>
+      BetterThis – IT Solutions <br />
+      & Professional Training
+    </h2>
+    <p className="description">
+      At BetterThis, we combine innovation and education to help individuals and businesses succeed. 
+      As an IT company, we deliver modern software solutions and digital services. 
+      As a training provider, we offer expert-led courses designed to build in-demand skills and accelerate career growth. 
+      Our mission is to empower you with the right technology and knowledge for a brighter future.
+    </p>
 
-                <div className="about-features">
-                  <div className="feature-card yellow">
-                    <div className="featurecard-icon-round">
-                      <FaAward className="feature-icon" />
-                    </div>
-                    <div>
-                      <h4>Highly Experienced</h4>
-                      <p>
-                        Our team brings years of expertise and industry knowledge, ensuring you receive guidance and solutions you can trust.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="feature-card blue">
-                    <div className="featurecard-icon-round">
-                      <FaQuestionCircle className="feature-icon" />
-                    </div>
-                    <div>
-                      <h4>Question, Quiz & Course</h4>
-                      <p>
-                        Engage with interactive questions, challenging quizzes, and comprehensive courses designed to make learning effective and enjoyable.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="feature-card purple">
-                    <div className="featurecard-icon-round">
-                      <FaHeadset className="feature-icon" />
-                    </div>
-                    <div>
-                      <h4>Dedicated Support</h4>
-                      <p>
-                        Our support team is always ready to assist you, ensuring a smooth and hassle-free learning experience at every step.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <div className="about-features">
+      <div className="feature-card yellow">
+        <div className="featurecard-icon-round">
+          <FaAward className="feature-icon" />
+        </div>
+        <div>
+          <h4>Industry Expertise</h4>
+          <p>
+            Our IT professionals and trainers bring years of real-world experience, delivering solutions and knowledge that truly matter.
+          </p>
+        </div>
+      </div>
+      <div className="feature-card blue">
+        <div className="featurecard-icon-round">
+          <FaQuestionCircle className="feature-icon" />
+        </div>
+        <div>
+          <h4>Courses & Career Growth</h4>
+          <p>
+            Learn from interactive courses, practical projects, and mentoring that help you upskill and advance your career.
+          </p>
+        </div>
+      </div>
+      <div className="feature-card purple">
+        <div className="featurecard-icon-round">
+          <FaHeadset className="feature-icon" />
+        </div>
+        <div>
+          <h4>Reliable Support</h4>
+          <p>
+            Whether for IT services or learning, our support team ensures you get the right help whenever you need it.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
             <StatsSection />
             <Footer />
           </Framer>

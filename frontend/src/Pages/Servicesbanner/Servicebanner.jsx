@@ -4,15 +4,11 @@ import { useNavigate } from "react-router-dom";
 import "./Servicebanner.css";
 import { FaProjectDiagram, FaUsers, FaHandshake } from "react-icons/fa";
 import Footer from "../../LandingPage/Footer/Footer";
+import Navbar from "../../LandingPage/Home/Navbar";
+import Bar from "../../LandingPage/Home/Bar";
 
 const sections = [
-  {
-    label: "SERVICE",
-    title: "Product Engineering",
-    description:
-      "Our team of adept engineers merge creativity, proficiency, and state-of-the-art tools to metamorphose your concepts into market-ready products.",
-    image: "../asset/image/91.png",
-  },
+  
   {
     label: "SERVICE",
     title: "AI & Machine Learning",
@@ -83,7 +79,39 @@ const Servicebanner = () => {
   const [fade, setFade] = useState(true);
   const sectionRefs = useRef([]);
   const navigate = useNavigate();
+  const [showNavbar, setShowNavbar] = useState(false)
+   const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
+     const heroRef = useRef(null)
+     const [menuOpen, setMenuOpen] = useState(false)
+     const menuRef = useRef(null)
+       useEffect(() => {
+         function handleClickOutside(event) {
+           if (menuRef.current && !menuRef.current.contains(event.target)) {
+             setMenuOpen(false)
+           }
+         }
+         if (menuOpen) {
+           document.addEventListener("mousedown", handleClickOutside)
+         }
+         return () => {
+           document.removeEventListener("mousedown", handleClickOutside)
+         }
+       }, [menuOpen])
+ useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      setShowNavbar(!entry.isIntersecting)
+    }, { threshold: 0.5 })
 
+    if (heroRef.current) observer.observe(heroRef.current)
+    return () => {
+      if (heroRef.current) observer.unobserve(heroRef.current)
+    }
+  }, [])
+   useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768)
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
   useEffect(() => {
     const handleScroll = () => {
       sectionRefs.current.forEach((ref, index) => {
@@ -108,40 +136,55 @@ const Servicebanner = () => {
 
  return (
   <>
-    <Container className="text-center py-5">
-      {/* Your first section */}
-      <h2 className="fw-bold mb-4 fade-in">
-        Flexible Engagement, Tailored To Your Vision
-      </h2>
+    <div className={`fixed-navbar ${showNavbar ? "visible" : ""}`}>
+          <Navbar isMobile={isMobile} showNavbar={showNavbar} />
+        </div>
+  <div className="about-section">
 
-      <p className="lead mx-auto fade-in" style={{ maxWidth: "900px" }}>
-        Every venture is unique, and so should be the roadmap to its success.
-        At Innovatily, we understand this core principle. We offer versatile
-        engagement models designed to align with your distinct business
-        objectives and operational nuances. Be it a project-based
-        collaboration, a dedicated team to augment your existing resources, or
-        a consultative partnership, we mold our approach to fit your vision.
-        Our adaptive models ensure that, together, we can navigate challenges
-        efficiently, capitalize on opportunities swiftly, and ensure that our
-        collaboration remains as dynamic and results-driven as the solutions
-        we craft.
-      </p>
+        <div ref={heroRef} className="header" style={{ position: "absolute", top: "30px", left: 0, right: 0, zIndex: 10 }}>
+          <Bar logoText="BetterThis" menuRef={menuRef} isMobile={isMobile} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        </div>
 
-      <Row className="mt-5">
-        <Col md={4} className="mb-4 icon-container">
-          <FaProjectDiagram size={60} color="#3b82f6" className="icon-animate" />
-          <h6>Project-Based Collaboration</h6>
-        </Col>
-        <Col md={4} className="mb-4 icon-container">
-          <FaUsers size={60} color="#3b82f6" className="icon-animate" />
-          <h6>A Dedicated Team</h6>
-        </Col>
-        <Col md={4} className="mb-4 icon-container">
-          <FaHandshake size={60} color="#3b82f6" className="icon-animate" />
-          <h6>Consultative Partnership</h6>
-        </Col>
-      </Row>
-    </Container>
+        {/* Top Banner */}
+        <div className="about-profile-sec8">
+          <div className="hero">
+     <Container style={{ marginTop: '3%' }}>
+  <Row className="align-items-center text-center">
+
+    {/* Full width text */}
+    <Col md={12}>
+      <p className="subtitle">Transform Your Business With BetterThis</p>
+      <h1 className="title">
+        <span className='blue'>BetterThis Services</span><br />
+        Innovative Solutions For Your Growth
+      </h1>
+      <div className="features mt-3">
+        <span>✅ Tailored Digital Solutions</span>
+        <span>🚀 Drive Efficiency & Scalability</span>
+        <span>🎯 Focused On Real Business Impact</span>
+      </div>
+    </Col>
+
+    {/* Full width image */}
+    <Col md={12} className="mt-4">
+      <img
+        src="../asset/image/Screenshot 2025-08-24 162346.png"
+        alt="Service"
+        className="heroImage"
+      />
+    </Col>
+
+  </Row>
+</Container>
+
+
+    </div>
+        </div>
+
+
+
+
+      </div>
 
     <Container fluid className="what-we-do-section">
       {/* Your second section here (with sticky image and content) */}
