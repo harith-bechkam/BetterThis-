@@ -129,13 +129,19 @@ function ContactPage() {
             zIndex: 10,
           }}
         >
-          <Bar
-            logoText="BetterThis"
-            menuRef={menuRef}
-            isMobile={isMobile}
-            menuOpen={menuOpen}
-            setMenuOpen={setMenuOpen}
-          />
+             <Bar 
+  logoText={
+    <img 
+      src="./asset/image/final3.png"  // put your logo image path here
+      alt="BetterThis Logo" 
+      style={{ height: "100px", objectFit: "contain" }} 
+    />
+  } 
+  menuRef={menuRef} 
+  isMobile={isMobile} 
+  menuOpen={menuOpen} 
+  setMenuOpen={setMenuOpen} 
+/>
         </div>
         <div className="contactdetails">
           <h1>Contact Us</h1>

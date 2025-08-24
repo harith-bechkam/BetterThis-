@@ -419,8 +419,19 @@ const ProfileCard = () => {
      <div className="about-section">
 
         <div ref={heroRef} className="header" style={{ position: "absolute", top: "30px", left: 0, right: 0, zIndex: 10 }}>
-          <Bar logoText="BetterThis" menuRef={menuRef} isMobile={isMobile} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        </div>
+   <Bar 
+  logoText={
+    <img 
+      src="./asset/image/final3.png"  // put your logo image path here
+      alt="BetterThis Logo" 
+      style={{ height: "100px", objectFit: "contain" }} 
+    />
+  } 
+  menuRef={menuRef} 
+  isMobile={isMobile} 
+  menuOpen={menuOpen} 
+  setMenuOpen={setMenuOpen} 
+/>        </div>
 
         {/* Top Banner */}
         <div className="about-profile-sec8">

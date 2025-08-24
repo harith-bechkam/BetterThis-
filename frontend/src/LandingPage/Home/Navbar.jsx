@@ -3,6 +3,7 @@ import Bar from "./Bar"
 
 export default function Navbar({ isMobile, showNavbar }) {
   const [navmenuOpen, setNavMenuOpen] = useState(false)
+   const [menuOpen, setMenuOpen] = useState(false)
   const menuRef = useRef(null)
 
   useEffect(() => {
@@ -27,13 +28,19 @@ export default function Navbar({ isMobile, showNavbar }) {
 
   return (
     <nav className="navbar">
-      <Bar
-        logoText="BetterThis"
-        isMobile={isMobile}
-        menuRef={menuRef}
-        menuOpen={navmenuOpen}
-        setMenuOpen={setNavMenuOpen}
-      />
+        <Bar 
+  logoText={
+    <img 
+      src="./asset/image/final3.png"  // put your logo image path here
+      alt="BetterThis Logo" 
+      style={{ height: "100px", objectFit: "contain" }} 
+    />
+  } 
+  menuRef={menuRef} 
+  isMobile={isMobile} 
+  menuOpen={menuOpen} 
+  setMenuOpen={setMenuOpen} 
+/>
     </nav>
   )
 }
