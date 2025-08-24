@@ -48,19 +48,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer>
-        <div className="letstalk">
-          <h3>Let's Talk?</h3>
-          <h2>We Want to <span>Get To</span> Know You!</h2>
-          <div className="userInputs">
-            <input type="text" placeholder="Name *" required />
-            <input type="phone" placeholder="Contact Number *" required />
-            <input type="email" placeholder="Email *" required />
-            <button className="submitbtn">submit</button>
-          </div>
-          <p>Dear Job Aspirants, please select <span>"Join Our Talent"</span> or go to careers section and select <span>"Search Jobs"</span> to apply.</p>
-        </div>
-      </footer>
+     
 
 
       <footer className="footer">
@@ -73,9 +61,9 @@ const Footer = () => {
               <span className="footerlogo-icon"><img src={logo} width={"32px"} height={"32px"} /></span>
               <span className="footerlogo-text">BetterThis</span>
             </div>
-            <p><strong>Email</strong><br />info@betterthis.com</p>
-            <p><strong>Phone Number</strong><br />+1 (800) 123-4567</p>
-            <p><strong>Address</strong><br />123, Street Name, Area Name,<br />City Name</p>
+            <p><strong>Email</strong><br />kaleeswaran.b@betterthis.in</p>
+            <p><strong>Phone Number</strong><br />+91 6380319582</p>
+            <p><strong>Address</strong><br />18,sentamil 11th street parasakthinagar avanipuram<br />Madurai-625012</p>
           </div>
 
           <div className="footer-column quick-links">
@@ -118,7 +106,7 @@ const Footer = () => {
       <div className="footer-end-bottom">
         <div className="footer-bottom">
 
-          <p>© Copyright {new Date().getFullYear()} BetterThis Technology Solutions Pvt Ltd</p>
+          <p>© Copyright {new Date().getFullYear()} BetterThis Technology Solutions </p>
           <div className="footer-info justify-content-end">
 
             <div className="footer-links">
@@ -127,8 +115,8 @@ const Footer = () => {
               <a href="#">Disclaimers</a>
             </div>
             <div className="contact-info">
-              <span><FaPhoneAlt /> +1 (800) 123-4567</span>
-              <span><FaEnvelope /> <a href="mailto:info@ikomet.com">info@betterthis.com</a></span>
+              <span><FaPhoneAlt /> +91 6380319582</span>
+              <span><FaEnvelope /> <a href="mailto:kaleeswaran.b@betterthis.in">kaleeswaran.b@betterthis.in</a></span>
             </div>
 
           </div>

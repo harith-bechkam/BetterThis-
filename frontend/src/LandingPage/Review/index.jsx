@@ -72,7 +72,9 @@ const Index = () => {
                 <div className="rutConnect">
                     <h2>Connect With Us</h2>
                     <h2 className="Inventive">+91 6380319582</h2>
-                    <h5>info@betterthis.com</h5>
+                    <h5>kaleeswaran.b@betterthis.in</h5>
+                    <h5>infobetterthis@gmail.com</h5>
+                    
                 </div>
             </div>
 
