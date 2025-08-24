@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import { FaPlus, FaMinus, FaCheckCircle, FaStar, FaCog } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const Bar = ({ logoText = "BetterThis", menuRef, isMobile, menuOpen, setMenuOpen }) => {
+const Bar = ({  menuRef, isMobile, menuOpen, setMenuOpen }) => {
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -54,7 +54,11 @@ const Bar = ({ logoText = "BetterThis", menuRef, isMobile, menuOpen, setMenuOpen
                 className={`logo ${isActive("/") ? "active" : ""}`}
                 style={{ cursor: "pointer" }}
                 onClick={() => navigateAndScrollTop("/")}
-            >  {logoText}  </h3>
+            > <img 
+        src="./asset/image/final3.png" 
+        alt="BetterThis Logo" 
+        style={{ height: "100px", objectFit: "contain" }}
+    /> </h3>
 
             {isMobile ? (
                 <>
