@@ -46,9 +46,21 @@ const Footer = () => {
   }
 
 
+  const handleNavigateContact = () => {
+    if (location.pathname == "/contact") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/contact")
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" })
+      }, 0)
+    }
+  }
+
+
   return (
     <>
-     
+
 
 
       <footer className="footer">
@@ -70,10 +82,10 @@ const Footer = () => {
             <h2>Quick Links</h2>
             <ul>
               <li onClick={handleHome}>Home</li>
-              <li>Services</li>
+              {/* <li>Services</li> */}
               <li onClick={handleAbout}>Inside BetterThis</li>
-              <li>Products</li>
               <li onClick={handleNavigateCourse}>Courses</li>
+              <li onClick={handleNavigateContact}>Contact Us</li>
             </ul>
           </div>
 
