@@ -487,11 +487,15 @@
 .character-name {
   font-size: 1.2rem;
   font-weight: 700;
+  position: relative;
+  top:42%
 }
 
 .character-subtitle {
   font-size: 0.9rem;
   opacity: 0.9;
+  position: relative;
+  top:42%
 }
 
 .floating-img {
@@ -499,7 +503,16 @@
   height: 80px;
   border-radius: 50%;
   object-fit: cover;
-  margin-top: -40px;
+  margin-top: 34px;
   border: 3px solid #fff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.hero-container {
+  margin-top: 3%;   /* default desktop / laptop */
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    margin-top: 21%;  /* mobile */
+  }
 }

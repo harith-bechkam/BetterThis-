@@ -100,20 +100,20 @@ const ProfileCard = () => {
         {/* Top Banner */}
         <div className="about-profile-sec8">
           <div className="hero">
-            <Container style={{ marginTop: '3%' }}>
+            <Container className="hero-container">
               <Row className="align-items-center">
                 <Col md={6} className="text-center text-md-start">
-                  <p className="subtitle">Develop Your Skills In a New and Unique Way</p>
-                  <h1 className="title">
-                    <span className='blue'>Better This Course</span><br />
-                    Boost Your Skills & Career Growth
-                  </h1>
-                  <div className="features mt-3">
-                    <span>✅ Master In-Demand Skills</span>
-                    <span>🚀 Learn at Your Own Pace</span>
-                    <span>🎯 Achieve Real Results</span>
-                  </div>
-                </Col>
+  <p className="subtitle">Develop Your Skills In a New and Unique Way</p>
+  <h1 className="title">
+    <span className='gold-gradient'>Better This Course</span><br />
+    Boost Your Skills & Career Growth
+  </h1>
+  <div className="features mt-3">
+    <span>✅ Master In-Demand Skills</span>
+    <span>🚀 Learn at Your Own Pace</span>
+    <span>🎯 Achieve Real Results</span>
+  </div>
+</Col>
                 <Col md={6} className="text-center mt-4 mt-md-0">
                   <img
                     src="../asset/image/cd6.png"
