@@ -70,7 +70,7 @@ const Footer = () => {
         <div className="footer-container">
           <div className="footer-column company-info">
             <div className="footerlogo">
-              <span className="footerlogo-icon"><img src={logo} width={"32px"} height={"32px"} /></span>
+              <span className="footerlogo-icon"><img src={'https://www.betterthis.in/asset/image/final3.png'} width={"32px"} height={"32px"} /></span>
               <span className="footerlogo-text">BetterThis</span>
             </div>
             <p><strong>Email</strong><br />kaleeswaran.b@betterthis.in</p>
