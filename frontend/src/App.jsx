@@ -17,7 +17,7 @@ import CourseList from './Pages/CourseList/CourseList'
 function App() {
   return (
     <Router>
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
       <Routes>
         <Route
           path="/"
