@@ -132,7 +132,7 @@ function ContactPage() {
              <Bar 
   logoText={
     <img 
-      src="./asset/image/final3.png"  // put your logo image path here
+      src="../../asset/image/final3.png"  // put your logo image path here
       alt="BetterThis Logo" 
       style={{ height: "100px", objectFit: "contain" }} 
     />

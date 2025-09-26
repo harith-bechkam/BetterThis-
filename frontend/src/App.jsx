@@ -10,6 +10,8 @@ import ScrollToTop from './ScrollToTop'
 import Review from './LandingPage/Review'
 import About from './Pages/Aboutall/About_all'
 import Contact from './Pages/ContactPage/ContactPage'
+import Page from './Pages/Photos/photo'
+import Viewphotos from './Pages/Photos/viewphotos'
 import Framer from './framer'
 import Servicesall from './Pages/Servicesbanner/Servicebanner'
 
@@ -36,6 +38,9 @@ function App() {
         />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/photos" element={<Page />} />
+        <Route path="/viewphotos/:id" element={<Viewphotos />} />
+        
         <Route path="/courselist" element={<CourseList />} />
         <Route path="/servicesall" element={<Servicesall />} />
       </Routes>

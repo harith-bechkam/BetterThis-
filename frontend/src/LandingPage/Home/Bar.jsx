@@ -57,7 +57,7 @@ const Bar = ({ from = null, logoText = "BetterThis", menuRef, isMobile, menuOpen
             >
                 {/* {logoText} */}
                 <img
-                    src="./asset/image/final3.png"
+                    src="../../asset/image/final3.png"
                     alt="BetterThis Logo"
                     style={{
                         height: from == null ? "100px" : "50px",
@@ -90,6 +90,8 @@ const Bar = ({ from = null, logoText = "BetterThis", menuRef, isMobile, menuOpen
                             <ul className="mobile-menu-list">
                                 <li className={isActive("/") ? "active" : ""} onClick={() => navigateAndScrollTop("/")}>Home</li>
                                 <li className={isActive("/about") ? "active" : ""} onClick={() => navigateAndScrollTop("/about")}  >Inside BetterThis</li>
+                                <li className={isActive("/photos") ? "active" : ""} onClick={() => navigateAndScrollTop("/photos")}  >visitedcollage</li>
+                                
                                 <li className={isActive("/courselist") ? "active" : ""} onClick={() => navigateAndScrollTop("/courselist")}>Courses</li>
                                 <li className={isActive("/contact") ? "active" : ""} onClick={() => navigateAndScrollTop("/contact")} >Contact Us</li>
                                 {/* <li
@@ -124,6 +126,7 @@ const Bar = ({ from = null, logoText = "BetterThis", menuRef, isMobile, menuOpen
                     <li
                         // className="inside-betterthis"
                         className={isActive("/about") ? "active" : ""} onClick={() => navigateAndScrollTop("/about")}>Inside BetterThis</li>
+                        <li className={isActive("/photos") ? "active" : ""} onClick={() => navigateAndScrollTop("/photos")}  >visitedcollage</li>
                     <li className={isActive("/courselist") ? "active" : ""} onClick={() => navigateAndScrollTop("/courselist")}>Courses</li>
                     <li className={isActive("/contact") ? "active" : ""} onClick={() => navigateAndScrollTop("/contact")} >Contact Us</li>
                     {/* <li
