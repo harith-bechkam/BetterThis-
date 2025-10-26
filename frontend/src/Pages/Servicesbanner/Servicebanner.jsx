@@ -146,7 +146,7 @@ const Servicebanner = () => {
   logoText={
     <img 
       src="../../asset/image/final3.png"  // put your logo image path here
-      alt="BetterThis Logo" 
+      alt="heliolunar Logo" 
       style={{ height: "100px", objectFit: "contain" }} 
     />
   } 
@@ -165,9 +165,9 @@ const Servicebanner = () => {
 
     {/* Full width text */}
     <Col md={12}>
-      <p className="subtitle">Transform Your Business With BetterThis</p>
+      <p className="subtitle">Transform Your Business With heliolunar</p>
       <h1 className="title">
-        <span className='blue'>BetterThis Services</span><br />
+        <span className='blue'>heliolunar Services</span><br />
         Innovative Solutions For Your Growth
       </h1>
       <div className="features mt-3">
